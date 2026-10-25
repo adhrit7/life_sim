@@ -3,7 +3,7 @@
 ## Introduction
 
 This life simulator is a game built using Python. The user is presented with 2 or more choices and their own choices lead to the changes in their stats within the game.
-These include money, health, grades etc. 
+These include money, health, grades etc. v1.0 IS ONLY AVAILABLE FOR MAC USERS . IF YOU ARE NOT ON MAC YOU CAN ONLY RUN WHATEVER UPDATED FILE THERE IS IN THE REPOSITORY MUST DOWNLOAD THE REPOSITORY AND RUN ``` life_sim.py ``` IN Python 3 AS ``` python life_sim.py ``` 
 
 ## How to demo
 
