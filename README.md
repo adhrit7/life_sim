@@ -3,7 +3,7 @@
 ## Introduction
 
 This life simulator is a game built using Python. The user is presented with 2 or more choices and their own choices lead to the changes in their stats within the game.
-These include money, health, grades etc. v1.0 IS ONLY AVAILABLE FOR MAC USERS . IF YOU ARE NOT ON MAC YOU CAN ONLY RUN WHATEVER UPDATED FILE THERE IS IN THE REPOSITORY MUST DOWNLOAD THE REPOSITORY AND RUN ``` life_sim.py ``` IN Python 3 AS ``` python life_sim.py ``` 
+These include money, health, grades etc. ALL VERSIONS TILL DATE ARE ONLY AVAILABLE FOR MAC USERS . IF YOU ARE NOT ON MAC YOU CAN ONLY RUN WHATEVER UPDATED FILE THERE IS IN THE REPOSITORY MUST DOWNLOAD THE REPOSITORY AND RUN ``` life_sim.py ``` IN Python 3 AS ``` python life_sim.py ``` 
 
 ## How to demo
 
@@ -13,7 +13,7 @@ These include money, health, grades etc. v1.0 IS ONLY AVAILABLE FOR MAC USERS . 
 
 ## Current state
 
-There are only 4 scenes related to the story in release v1.0, which is being worked on right now!! In its current state it only works within terminal and does not store your progress. I aim to fix this in the future as soon as I finish more parts of the story.
+There are only limited number of scenes. In its current state it only works within terminal and does not store your progress. I aim to fix this in the future as soon as I finish more parts of the story.
 
 
 ## Future updates
