@@ -2,7 +2,7 @@ player = {"money": 50, "health": 100, "happiness": 50, "grades": 50, "age": 16, 
            "cheated": False, "prom_with" : "", "plan": ""}
 popular_friends = {"met": False, "respect": 0}
 crush = {"met": False, "affection": 0, "name": ""}
-sports = {"name": "", "skills": 50}
+sports = {"name": "", "skills": 50, "position": ""}
 
 
 #RESET AFFECTION AND RESPECT TO 0 CUH

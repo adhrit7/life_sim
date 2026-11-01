@@ -165,6 +165,7 @@ def sport_1():
                     print("Tabble Tennis skills + 10")
                     player["happiness"] += 7
                     print("happiness + 7")
+                    sports["position"] = "starter"
                     return
                 elif player["health"] >= 70:
                     print("You managed to finish the exercises, struggling a bit. But you are still selected!")
@@ -173,20 +174,106 @@ def sport_1():
                     print("Tabble Tennis skills + 8")
                     player["happiness"] += 7
                     print("happiness + 7")
+                    sports["position"] = "starter"
                     return
-                elif player["health"] < 70:
+                elif player["health"] > 50:
+                    print("You barely managed to finish the exercises. For now you are jut a reserve player...")
+                    sports["name"] = "Table Tennis"
+                    sports["skills"] += 5
+                    print("Tabble Tennis skills + 5")
+                    player["happiness"] += 3
+                    print("happiness + 3")
+                    sports["position"] = "reserve"
+                    return
+                else:
                     print("You could not complete the exercises and unfortunately weren't selected for Table Tennis, however you can attempt a tryout for other sports!")
-                    break
+                    continue
         #football, more demanding
-        # elif choice == "2":
-        #     print("\nYou turn up at the pitch at 6 am in the morning. You're tired, so you have to do your best!")
-        #     print("You tryout as a striker. The game starts...")
-        #     print("You have the ball, what do you do?")
-        #     print("\n1. Shoot from outside the box")
-        #     print("2.")
-
-
-        # elif choice == "3":
-
-        # else:
-        #     print("Invalid choice, try again")
+        elif choice == "2":
+            print("\nYou turn up at the pitch at 6 am in the morning. You're tired, so you have to do your best!")
+            print("You tryout as a striker. The game starts...")
+            print("You have the ball, what do you do?")
+            print("\n1. Shoot from outside the box")
+            print("2. Dribble through the defence")
+            choice_2 = input("> ")
+            if choice_2 == "1":
+                if random.random() < 0.7:
+                    print("\nYour shot was saved, and your team won a corner, which resulted in a goal!")
+                else:
+                    print("You scored a goal from 30 metres out! You and your team celebrate wildly!")
+                    sports["skills"] += 10
+                    print("Skills + 10")
+                    player["happiness"] += 15
+                    print("Happiness + 15")
+            elif choice_2 == "2":
+                print("\nYou start dribbling like a pro, and are about to shoot until you get fouled from behind. Penalty awarded")
+                print("You decide to take the penalty... Where do you shoot?")
+                print("\n1. Calmly chip it in the middle")
+                print("2. Bang it into the top corner")
+                choice_3 = input("> ")
+                if choice_3 == "1":
+                    if random.random < 0.4:
+                        print("\nYou missed trying to look cool, you lost all your aura and the game...")
+                        popular_friends["respect"] -= 10
+                        print("Respect - 10")
+                        player["happiness"] -= 10
+                        print("Happiness - 10")
+                    else:
+                        print("\nYou just coldly celebrate as you just won the game for your team...")
+                        popular_friends["respect"] += 10
+                        print("respect + 10")
+                        player["happiness"] += 10
+                        print("Respect + 10")
+                elif choice_3 == "2":
+                    if random.random < 0.2:
+                        print("\nYou hit the crossbar, but your team lost the game")
+                        player["happiness"] -= 5
+                        print("Happiness - 5")
+                        popular_friends["respect"] -= 5
+                        print("Respect - 5")
+                    else:
+                        print("\nYou scored a beautiful penalty to win the game in the last minutes!")
+                        player["happiness"] += 10
+                        print("Happiness + 10")
+                        popular_friends["respect"] += 5
+                        print("respect + 5")
+                else:
+                    print("Invalid choice, try again")
+            else:
+                print("Invalid choice, try again")
+            print("The coach makes all the players do fitness exercises. It's either a pass or fail")
+            if player["health"] == 100:
+                print("You finish them easily and are now part of the Football team!")
+                sports["name"] = "Football"
+                sports["skills"] += 10
+                print("Football skills + 10")
+                player["happiness"] += 7
+                print("happiness + 7")
+                return
+            elif player["health"] >= 80:
+                print("You managed to finish the exercises, struggling a bit. But you are still selected!")
+                sports["name"] = "Football"
+                sports["skills"] += 8
+                print("Football skills + 8")
+                player["happiness"] += 7
+                print("happiness + 7")
+                return
+            elif player["health"] > 65:
+                print("You barely made it through. You will need to work harder. But you are selected as a substitute")
+                sports["name"] = "Football"
+                sports["skills"] += 5
+                print("Football skills + 5")
+                player["happiness"] += 3
+                print("happiness + 3")
+                sports["position"] = "substitute"
+                return
+            else:
+                print("You could not complete the exercises and unfortunately weren't selected for Football, however you can attempt a tryout for other sports!")
+                continue
+        #basketball, middle of the 2
+        elif choice == "3":
+            print("\nYou tie your shoelaces, enter the basketball court and begin hooping as warm-up.")
+            print("The tryouts soon begin, and you seem to be struggling. You have only made... ")
+            
+        else:
+            print("Invalid choice, try again")
