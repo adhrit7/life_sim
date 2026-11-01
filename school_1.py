@@ -1,6 +1,6 @@
 from data import player, crush, popular_friends
 import random
-import school_2
+from helpers import can_afford
 
 #first day of school
 def day_1_morning():
@@ -50,7 +50,7 @@ def day_1_lunch():
             if popular_friends["met"] == False:
                 print("\nThey tell you to go away. Try somewhere else")
             else:
-                print("They crack jokes and you laugh along.")
+                print("\nThey crack jokes and you laugh along.")
                 player["happiness"] += 5
                 popular_friends["respect"] += 5
                 print("Happiness + 5")
@@ -60,7 +60,7 @@ def day_1_lunch():
             if crush["met"] == False:
                 print("\nYou don't really know them. It would be awkward. Try somewhere else.")
             else:
-                print("You talk the whole lunch.")
+                print("\nYou talk the whole lunch.")
                 player["happiness"] += 5
                 crush["affection"] += 5
                 print("Happiness + 5")
@@ -406,11 +406,11 @@ def job_1():
 #function to verify if they can afford something
 #function is major as it is useful everywhere, within school_!.py and future files as well
 #plan is to upgrade the function capabilities
-def can_afford(cost):
-    if player["money"] >= cost:
-        return True
-    print("Sorry, you can't afford that right now. Try something else.")
-    return False
+# def can_afford(cost):
+#     if player["money"] >= cost:
+#         return True
+#     print("Sorry, you can't afford that right now. Try something else.")
+#     return False
 
 #money spending area
 def money_spend_1():

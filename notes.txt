@@ -9,7 +9,6 @@ Ideas-
 
 
 What I did for devlogging-
-1.finished the final exam function
-2.Working on better formatting
-3.updated previous functions
-4.changed the timeline and age
+1.updated previous functions
+2.Updated where helper functions are
+3.Debugging

@@ -1,46 +1,47 @@
-from data import player, crush, popular_friends
+from data import player, crush, popular_friends, sports
 import random
 import school_1
 import school_2
+from helpers import show_stats, check_stats
 
 
-def show_stats():
-    print("---Your stats---")
-    print("money:", player["money"])
-    print("health:", player["health"])
-    print("happiness:", player["happiness"])
-    print("grades:", player["grades"])
-    print("age:", player["age"])
+# def show_stats():
+#     print("---Your stats---")
+#     print("money:", player["money"])
+#     print("health:", player["health"])
+#     print("happiness:", player["happiness"])
+#     print("grades:", player["grades"])
+#     print("age:", player["age"])
 
 
-def check_stats():
-    # keep stats in a sensible range
-    for stat in ["health", "happiness", "grades"]:
-        if player[stat] > 100:
-            player[stat] = 100
-        if player[stat] < 0:
-            player[stat] = 0
+# def check_stats():
+#     # keep stats in a sensible range
+#     for stat in ["health", "happiness", "grades"]:
+#         if player[stat] > 100:
+#             player[stat] = 100
+#         if player[stat] < 0:
+#             player[stat] = 0
 
-    # warnings (the game continues)
-    if player["health"] < 30:
-        print("WARNING: your health is dangerously low!")
-    if player["happiness"] < 20:
-        print("You feel really down lately...")
-    if player["grades"] < 50:
-        print("Your teachers are worried about your grades.")
+#     # warnings (the game continues)
+#     if player["health"] < 30:
+#         print("WARNING: your health is dangerously low!")
+#     if player["happiness"] < 20:
+#         print("You feel really down lately...")
+#     if player["grades"] < 50:
+#         print("Your teachers are worried about your grades.")
 
-    # game over conditions (return True to stop the game)
-    if player["health"] <= 0:
-        print("Your health hit zero. Game over.")
-        return True
-    if player["happiness"] <= 0:
-        print("You gave up on everything. Game over.")
-        return True
-    if player["grades"] <= 30:
-        print("You got expelled. Game over.")
-        return True
+#     # game over conditions (return True to stop the game)
+#     if player["health"] <= 0:
+#         print("Your health hit zero. Game over.")
+#         return True
+#     if player["happiness"] <= 0:
+#         print("You gave up on everything. Game over.")
+#         return True
+#     if player["grades"] <= 30:
+#         print("You got expelled. Game over.")
+#         return True
 
-    return False
+#     return False
 
 
 def intro():
@@ -49,7 +50,7 @@ the number of the choice you see in front of you. For example, if you are presen
 to choose you will simply enter a "1" or a "2" and then press "ENTER".''')
     print("")
     player["name"] = input("What is your name? ")
-    print("Hey", player["name"] + ", you are a 16 year old who is just starting year 11 at a new high school you transferred to")
+    print("Hey", player["name"] + ", you are a 16 year old who is just starting year 11 at a new high school you transferred to.")
 
 
 intro()
