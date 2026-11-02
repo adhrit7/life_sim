@@ -5,44 +5,6 @@ import school_2
 from helpers import show_stats, check_stats
 
 
-# def show_stats():
-#     print("---Your stats---")
-#     print("money:", player["money"])
-#     print("health:", player["health"])
-#     print("happiness:", player["happiness"])
-#     print("grades:", player["grades"])
-#     print("age:", player["age"])
-
-
-# def check_stats():
-#     # keep stats in a sensible range
-#     for stat in ["health", "happiness", "grades"]:
-#         if player[stat] > 100:
-#             player[stat] = 100
-#         if player[stat] < 0:
-#             player[stat] = 0
-
-#     # warnings (the game continues)
-#     if player["health"] < 30:
-#         print("WARNING: your health is dangerously low!")
-#     if player["happiness"] < 20:
-#         print("You feel really down lately...")
-#     if player["grades"] < 50:
-#         print("Your teachers are worried about your grades.")
-
-#     # game over conditions (return True to stop the game)
-#     if player["health"] <= 0:
-#         print("Your health hit zero. Game over.")
-#         return True
-#     if player["happiness"] <= 0:
-#         print("You gave up on everything. Game over.")
-#         return True
-#     if player["grades"] <= 30:
-#         print("You got expelled. Game over.")
-#         return True
-
-#     return False
-
 
 def intro():
     print('''Welcome, this is a simple life simulator game where you will be choosing your own destiny. To play, you simply enter
@@ -57,24 +19,26 @@ intro()
 
 # every scene in the order it should happen
 scenes = [
-    # school_1.day_1_morning,
-    # school_1.day_1_lunch,
-    # school_1.day_2_morning,
-    # school_1.fight_1,
-    # school_1.party_1,
-    # school_1.exam_1,
-    # school_1.exam_2,
-    # school_1.report_card,
-    # school_1.job_1,
-    # school_1.money_spend_1,
-    # school_1.crush_1,
-    # school_1.random_event_1,
-    # school_1.prom_1,
-    # school_1.prom_2,
-    # school_1.exam_3,
-    # school_1.report_card,
+    school_1.day_1_morning,
+    school_1.day_1_lunch,
+    school_1.day_2_morning,
+    school_1.fight_1,
+    school_1.party_1,
+    school_1.exam_1,
+    school_1.exam_2,
+    school_1.report_card,
+    school_1.job_1,
+    school_1.money_spend_1,
+    school_1.crush_1,
+    school_1.random_event_1,
+    school_1.prom_1,
+    school_1.prom_2,
+    school_1.exam_3,
+    school_1.report_card,
     school_2.reset_stats,
     school_2.birthday_1,
+    school_2.sports_1,
+    school_2.random_event_2,
 ]
 
 for scene in scenes:

@@ -9,6 +9,6 @@ Ideas-
 
 
 What I did for devlogging-
-1.updated previous functions
-2.Updated where helper functions are
-3.Debugging
+1.Fix the outputs of sports, finished it
+2.Debug
+3.Worked on a smaller, random event for day before school
