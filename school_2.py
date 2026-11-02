@@ -385,11 +385,11 @@ def random_event_2():
     if random.random() < 0.5:
         print("\nYou are shopping with your parents one day before school reopens. Suddenly you see " + crush["name"] + "across the isles, but they haven't seen you yet.")
         while True:
-            print("1. Go up to them and say hi")
+            print("\n1. Go up to them and say hi")
             print("2. Act like you did not see them")
             choice = input("> ")
             if choice == "1":
-                print("\n" + crush["name"] + " wavds at you with a big smile. The two of you meet each other's parents")
+                print("\n" + crush["name"] + " waves at you with a big smile. The two of you meet each other's parents")
                 print("All of you go for a lunch together. You and " + crush["name"] + " chat together!")
                 player["happiness"] += 5
                 print("Happiness + 5")
@@ -397,7 +397,7 @@ def random_event_2():
                 print("Affection + 3")
                 return
             elif choice == "2":
-                print("You were too hesitant to even meet them outside of school... You feel dissapointed in yourself")
+                print("\nYou were too hesitant to even meet them outside of school... You feel dissapointed in yourself")
                 player["happiness"] -= 5
                 print("Happiness - 5")
                 return
@@ -408,18 +408,18 @@ def random_event_2():
         print("\nYou played video games for 15 hours straight. Your head and eyes begin to hurt...")
         print("What do you do?")
         while True:
-            print("1. Keep playing as it's last day before school")
+            print("\n1. Keep playing as it's last day before school")
             print("2. Go to sleep")
             choice_1 = input("> ")
             if choice_1 == "1":
-                print("Your eyes start to burn and you feel a lot of pain")
+                print("\nYour eyes start to burn and you feel a lot of pain")
                 player["health"] -= 5
                 print("Health - 5")
                 player["happiness"] -= 5
                 print("Happiness - 5")
                 return
             elif choice_1 == "2":
-                print("You finally take some rest. You really enjoyed the game nicely!")
+                print("\nYou finally take some rest. You really enjoyed the game nicely!")
                 player["happiness"] += 10
                 print("Happiness + 10")
                 return
