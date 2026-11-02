@@ -32,7 +32,6 @@ More parts to the story will be added, and a way to save progress so you do not 
 2. Debugging errors sometimes
 3. Helping me connect to PyInstaller
 4. Story idea suggestions
-5. Previous README was written entirely by AI, replaced it entirely now
 
 However I wrote most of the story and scenes 
 
