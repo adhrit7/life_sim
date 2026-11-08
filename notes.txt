@@ -1,14 +1,17 @@
 Ideas-
-1.sports team
+1.sports team training. make once, use after every 5-6 functions or so
 2.more jobs
 3.longer story
-4.start dating crush
+4.start dating crush once midway through year
 5.vacation
 6.driving test
+7.work on a field trip
+8.concert maybe
  ...
 
 
 What I did for devlogging-
-1.Fix the outputs of sports, finished it
-2.Debug
-3.Worked on a smaller, random event for day before school
+1.added day 1 school
+2. fixed that the project was not able to run within the vs code terminal
+3. added a .gitignore file
+4.Worked on assignment connecting to last year

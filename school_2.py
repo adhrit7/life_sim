@@ -397,7 +397,7 @@ def random_event_2():
                 print("Affection + 3")
                 return
             elif choice == "2":
-                print("\nYou were too hesitant to even meet them outside of school... You feel dissapointed in yourself")
+                print("You were too hesitant to even meet them outside of school... You feel dissapointed in yourself")
                 player["happiness"] -= 5
                 print("Happiness - 5")
                 return
@@ -426,3 +426,226 @@ def random_event_2():
             else:
                 print("Invalid choice, try again")
                 continue
+
+#day 1 of year 12, referring back to what the user chose on their bday
+def choose_plan():
+    print("\n---YEAR 12---")
+    print("Summer is over, and you are a senior now. On the first morning, your teacher hands out the subject forms for your final year.")
+    plan = player["plan"]
+
+    # branch 1: going uni
+    if plan == "university":
+        print("\nYour teacher leans over your desk. 'You said university. Entry requirements this year will be tough, so choose carefully.'")
+        while True:
+            print("\nWhat do you want to focus on?")
+            print("1. Sciences and maths")
+            print("2. Humanities and arts")
+            print("3. A balanced study load")
+            if sports["name"] != "":
+                print("4. Drop a subject to focus more on your" + sports["name"] + "training")
+            choice = input("> ")
+            if choice == "1":
+                if player["grades"] < 60:
+                    print("\nThe teacher warns you this might be a stretch with your current grades...")
+                    if random.random() < 0.5:
+                        print("You push through the hard work and it pays off!")
+                        player["grades"] += 10
+                        print("Grades + 12")
+                        player["happiness"] -= 3
+                        print("Happiness - 3")
+                    else:
+                        print("It is too much, and you fall behind before even the first week is over.")
+                        player["grades"] += 3
+                        print("Grades + 3")
+                        player["happiness"] -= 7
+                        print("Happiness - 7")
+                else:
+                    print("\nThe workload is quite heavy, but you seem to handle it well.")
+                    player["grades"] += 12
+                    print("Grades + 12")
+                    player["happiness"] -= 5
+                    print("Happiness - 5")
+                player["focus"] = "heavy"
+                return
+            elif choice == "2":
+                print("\nYou pick the subjects you actually enjoy. The first week feels lighter, and your teachers are impressed by your essays.")
+                player["grades"] += 8
+                print("Grades + 8")
+                player["happiness"] += 5
+                print("Happiness + 5")
+                player["focus"] = "creative"
+                return
+            elif choice == "3":
+                print("\nYou spread your effort across a bit of everything. Good work!")
+                player["grades"] += 5
+                print("Grades + 5")
+                player["focus"] = "balanced"
+                return
+            elif choice == "4" and sports["name"] != "":
+                print("\nYou drop a subject to keep your evenings free for the team. Your coach is thrilled, your teacher... less so")
+                sports["skills"] += 5
+                print(sports["name"]) + " skills + 5"
+                player["grades"] -= 3
+                print("Grades - 3")
+                player["focus"] = "sport"
+                return
+            else:
+                print("Invalid choice, try again")
+
+    #branch 2: getting a job
+    elif plan == "job":
+        print("\nour teacher nods. 'You want to work after school. There are some practical routes this year, so let's find you one.'")
+        while True:
+            print("\nWhat do you want to focus on?")
+            print("1. An work-experience placement")
+            print("2. A skills course")
+            print("3. A talk with a local apprentice")
+            if sports["name"] != "":
+                print("4. Drop a subject to protect your " + sports["name"] + " training")
+            choice = input("> ")
+
+            if choice == "1":
+                print("\nYou spend your weekend at a local business. The hours are long, but you get paid.")
+                player["money"] += 30
+                print("Money + 30")
+                player["grades"] -= 3
+                print("Grades - 3")
+                player["focus"] = "placement"
+                return
+            elif choice == "2":
+                print("\nThe course is hands- on and you pick up real skills.")
+                player["grades"] += 6
+                print("Grades + 6")
+                player["happiness"] += 3
+                print("Happiness + 3")
+                player["focus"] = "vocational"
+                return
+            elif choice == "3":
+                print("\nThe apprentice shows you what the job is really like, and introduces you to a few useful people around town.")
+                popular_friends["respect"] += 5
+                print("Respect + 5")
+                player["happiness"] += 5
+                print("Happiness + 5")
+                player["focus"] = "netowrking"
+                return
+            elif choice == "4" and sports["name"] != "":
+                print("\nYou drop a subject to keep your evenings free for the team.")
+                sports["skills"] += 5
+                print(sports["name"] + " skills + 5")
+                player["grades"] -= 5
+                print("Grades - 5")
+                player["focus"] = "sport"
+                return
+            else:
+                print("Invalid choice, try again")
+
+    #branch 3: unsure + invalid input
+    else:
+        print("\nYour teacher sighs... 'Not sure yet? You need to make a decision fast for your career'")
+        while True:
+            print("\nWhat do you do?")
+            print("1. Try a bit of everything")
+            print("2. Pick one path and try out your luck")
+            print("3. Put the decision off for now")
+            choice = input("> ")
+
+            if choice == "1":
+                print("\nYou try to focus equally on each subject. Nothing clicks yet, but nothing hurts either")
+                player["grades"] += 3
+                print("Grades + 3")
+                player["happiness"] += 3
+                print("Happiness + 3")
+                player["focus"] = "explore"
+                return
+            elif choice == "2":
+                print("\nYou commit to one path as a trial run. It gives you something to aim for.")
+                player["grades"] += 5
+                print("Grades + 5")
+                player["focus"] = "trial"
+                return
+            elif choice == "3":
+                print("\nYou tell yourself you will think about it later. It feels great to be stress free, for now...")
+                player["happiness"] += 8
+                print("Happiness + 8")
+                player["grades"] -= 5
+                print("Grades- 5")
+                player["focus"] = "later"
+                return
+            else:
+                print("Invalid choice, try again")
+
+
+#group project 1, with bully from school_1 fight_1
+def assignment_1():
+    print("\nYou are given a science assignement in which you have to work as partners")
+    print("Unfortunately for you, the teacher paired you up with the person who bullied you last year...")
+    while True:
+        print("\nIt is awkward to be working together on the same assignment after everything that happened earlier... What do you say to him after class?")
+        print("1. You got anything to say?")
+        print("2. Let's just finish it without talking about the past")
+        choice = input("> ")
+        if choice == "1":
+            print("\nThey threaten you, but you decide to focus on your work")
+            while True:
+                print("What do you do?")
+                print("\1. Do all the work yourself and give both of you the credit")
+                print("2. Try to split the work equally amongst yourselves")
+                print("3. Finish all the work but lie to the teacher that they didn't help out")
+                choice_1 = input("> ")
+                if choice_1 == "1":
+                    print("\nYou feel exhausted, angry that they did not help out. But atleast your teacher loved your assignment")
+                    player["happiness"] -= 3
+                    print("Happiness - 3")
+                    player["health"] -= 3
+                    print("Health - 3")
+                    player["grades"] += 7
+                    print("Grades + 7")
+                    return
+                elif choice_1 == "2":
+                    if random.random() < 0.6:
+                        print("\nSurprisingly the two of you manage to finish the work. The teacher grades your work average")
+                        player["grades"] += 3
+                        print("Grades + 3")
+                        return
+                    else:
+                        print("\nThe bully says they do not care about the assignment... Try another option")
+                        continue
+                elif choice_1 == "3":
+                    print("\nBold move, but they totally deserve it")
+                    if random.random() <= 0.5:
+                        print("The teacher gave the bully a 0 for not working, but gave you good marks! What a great moment of joy!")
+                        player["happiness"] += 5
+                        print("Happiness + 5")
+                        player['grades'] += 5
+                        print("Grades + 5")
+                        return
+                    else:
+                        print("The teacher did not believe you and instead gave you a 0 for framing your partner")
+                        player["grades"] -= 5
+                        print("Grades - 5")
+                        return
+                else:
+                    print("Invalid choice, try again")
+        elif choice == "2":
+            print("\nThe two of you finish the assignment early. The bully even apologises for what they did to you last year. You feel better about him")
+            if random.random() < 0.4:
+                print("You end up getting the highest marks in the class. Things ease up between you")
+                player["happiness"] += 4
+                print("Happiness + 4")
+                player["grades"] += 5
+                print("Grades + 5")
+                return
+            elif random.random() < 0.8:
+                print("You are given average marks for the assignement. Nothing special but now you aren't afraid of your classmate")
+                player["grades"] += 5
+                print("Grades + 5")
+                player["happiness"] += 3
+                print("Happiness + 3")
+                return
+            else:
+                print("The teacher fails you both for a poor assignment")
+                player["grades"] -= 3
+                print("Grades - 3")
+                return
+        else:
+            print("Invalid choice, try again")
