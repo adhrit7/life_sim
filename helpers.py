@@ -1,4 +1,4 @@
-from data import player, crush, popular_friends
+from data import player, crush, popular_friends, sports
 import random
 
 
@@ -29,6 +29,20 @@ def check_stats():
             player[stat] = 100
         if player[stat] < 0:
             player[stat] = 0
+        if popular_friends["respect"] > 100:
+            popular_friends["respect"] = 100
+        if popular_friends["respect"] < 100:
+            popular_friends["respect"] = 0
+        if crush["affection"] > 100:
+            crush["affection"] = 100
+        if crush["affection"] < 0:
+            crush["affection"] = 0
+        if sports["skills"] > 100:
+            sports["skills"] = 100
+        if sports["skills"] < 0:
+            sports["skills"] = 0
+
+
 
     # warnings (the game continues)
     if player["health"] < 30:

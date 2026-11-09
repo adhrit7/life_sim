@@ -11,4 +11,6 @@ Ideas-
 
 
 What I did for devlogging-
-1.turns out there was a bug in the previous commit. fixed it now wher euser is presented with same choic again. some typos too
+updated helpers.py for mroe stats
+working onmore story, quiz
+began working on student elections

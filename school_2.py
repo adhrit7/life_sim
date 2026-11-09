@@ -676,7 +676,7 @@ def training_1():
     while True:
         print("\nWhat do you do?")
         print("1. Go to training")
-        print("2. skip for today")
+        print("2. Skip for today")
         choice = input("> ")
         if choice == "1":
             break
@@ -989,3 +989,130 @@ def training_1():
         print("Happiness + 5")
     else:
         print("The coach tells you to keep training , you have potential")
+
+#pop quiz
+def pop_quiz_1():
+    print("\nIt's been about a month since your holidays ended. You are having fun in your class but your maths teacher walks in with a pop quiz...")
+    print("You feel nervous as you were not at all ready for this...")
+    print("You sit down nervously and flip to the first page")
+    while True:
+        #if person chose maths and science earlier
+        if player["focus"] == "heavy":
+            print("\nYou remember practising for these type of questions in your maths and science class.")
+            print("\nWhat do you do?")
+            print("1. Try your best on your own")
+            print("2. Copy off your classmate")
+            choice = input("> ")
+            if choice == "1":
+                print("\nYou end up doing well, getting a 18/20. You also feel confident about yourself!")
+                player["grades"] += 7
+                print("Grades + 7")
+                player["happiness"] += 5
+                print("Happiness + 5")
+                return
+            elif choice == "2":
+                print("\nYou lean over your classmates desk, trying your best not to get caught")
+                if random.random() < 0.4:
+                    print("You fall down, injuring yourself and also getting caught :( ")
+                    player["health"] -= 10
+                    print("Health - 10")
+                    player["grades"] -= 5
+                    print("Grades - 5")
+                    player["cheated"] = True
+                    player["grounded"] = True
+                    print("\nYour parents ground you after recieving a mail from your teacher")
+                    return
+                else:
+                    print(f"You got {80}% on the test, not bad but you feel guilty you didn't earn it yourself")
+                    player["cheated"] = True
+                    player["grades"] += 5
+                    print("Grades + 5")
+                    return
+            else:
+                print("Invalid choice, try again")
+        #if player didnt choose maths an dscience
+        else:
+            print("\nYou didn't pay much attention in math class... now you regret it")
+            while True:
+                print("1. Use your phone below your desk")
+                print("2. Don't cheat")
+                choice = input("> ")
+                if choice == "1":
+                    player["cheated"] = True
+                    while True:
+                        print("\nYou pull out your phone from your bag... you are almost done with the exam but suddenly your phone rings!")
+                        print("1. Silence it and keep it back in the bag")
+                        print("2. Confess")
+                        choice_1 = input("> ")
+                        if choice_1 == "1":
+                            if random.random() < 0.5:
+                                print("\nA student snitched on you and the teacher suspended you, while you got grounded at home... all for a pop quiz")
+                                player["suspension"] = True
+                                player["grades"] -= 5
+                                print("Grades - 5")
+                                player["grounded"] = True
+                                return
+                            else:
+                                print("\nLuckily nobody could figure out it was your phone, you end up getting full on the test")
+                                player["grades"] += 8
+                                print("Grades + 8")
+                                player["happiness"] -= 4
+                                print("Happiness - 4")
+                                print("You feel guilty")
+                                return
+                        elif choice_1 == "2":
+                            print("\nThe teacher gives you a 0 for the test, but does not suspend you.")
+                            print("She gives you detention for a week. Better than being suspended and atleast your parents dont know")
+                            player["grades"] -= 4
+                            print("Grades - 4")
+                            player["happiness"] -= 4
+                            print("Happiness - 4")
+                            return
+                        else:
+                            print("Invalid choice, try again")
+                elif choice == "2":
+                    print("You do the paper honestly, and get a decent score. You are glad that you did not cheat.")
+                    player["grades"] += 4
+                    print("Grades + 4")
+                    player["happiness"] += 3
+                    print("Happiness + 3")
+                    return
+                else:
+                    print("Invalid choice, try again")
+
+
+#the elections!!
+def elections_1():
+    if player["suspension"] == True:
+        print("\nYou come back to school after a week, you feel nervous for what is about to happen in assembly")
+    else:
+        print("\nYou are looking forward to assembly today, its a big moment")
+
+    print("The assembly was boring like always, but at the end they announce the candidates who are running for student council.")
+    print("\nYou also ran for student council as you think you can bring meaningful change to the school.")
+    print("What do you say on your poster for elections?")
+    while True:
+        print("\n1. 'I promise free lunch for everyone and longer breaks!'")
+        print("2. 'Real change, better facilities for every student'")
+        print("3. 'Vote for me cause everyone else running is boring'")
+        choice = input("> ")
+        if choice == "1":
+            print("You become popular amongst every class for your slogan. However some teachers laugh behind your back at your unrealistic promise")
+            popular_friends["respect"] += 10
+            print("Respect + 10")
+            return
+        elif choice == "2":
+            print("Students and teachers like your idea. You feel happy")
+            popular_friends["respect"] += 7
+            print("Respect + 7")
+            player["happiness"] += 3
+            return
+        elif choice == "3":
+            print("It is a very low effort election campaign according to teacher, but your friends and " + crush["name"] + " find it funny")
+            popular_friends["respect"] -= 4
+            print("Respect - 4")
+            player["happiness"] += 5
+            print("Happiness + 5")
+            return
+        else:
+            print("Invalid choice, try again")
