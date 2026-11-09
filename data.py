@@ -2,7 +2,7 @@ player = {"money": 50, "health": 100, "happiness": 50, "grades": 50, "age": 16, 
            "cheated": False, "prom_with" : "", "plan": "", "focus" : ""}
 popular_friends = {"met": False, "respect": 0}
 crush = {"met": False, "affection": 0, "name": ""}
-sports = {"name": "", "skills": 50, "position": ""}
+sports = {"name": "", "skills": 50, "position": "", "sessions" : 0}
 
 #---PLAYER LIST---#
 #RESET money : 50
@@ -26,3 +26,4 @@ sports = {"name": "", "skills": 50, "position": ""}
 #---SPORTS LIST---#
 #RESET name, position : ""
 #RESET skills : 50
+#RESET sessions : 0

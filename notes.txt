@@ -11,7 +11,4 @@ Ideas-
 
 
 What I did for devlogging-
-1.added day 1 school
-2. fixed that the project was not able to run within the vs code terminal
-3. added a .gitignore file
-4.Worked on assignment connecting to last year
+1.turns out there was a bug in the previous commit. fixed it now wher euser is presented with same choic again. some typos too
