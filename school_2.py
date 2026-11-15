@@ -1374,11 +1374,155 @@ def open_day():
 
 
 def match_1():
+    #spectator
     if sports["name"] == "":
-        return
-    if sports["name"] == "Table Tennis":
-        ...
+        print("\nYour school has it's first football match of the season at home!")
+        while True:
+            print("Who do you go with?")
+            print("1. With your friends")
+            print("2. With " + crush["name"])
+            print("3. Go alone")
+            choice = input("> ")
+            if choice == "1":
+                print("\nYou turn up to the game hyped, hoping to see your team's first win of the season!")
+                outcome = random.choice(["win", "loss", "draw"])
+                if outcome == "draw":
+                    print("The game turned out to be a 3-3 draw, atleast you saw your friends score!")
+                    player["happiness"] += 5
+                    print("Happiness + 5")
+                elif outcome == "win":
+                    print("Your team won the game by a 3-0 margin! You enjoyed every moment of it!")
+                    player["happiness"] += 10
+                    print("Happiness + 10")
+                else:
+                    print("Sadly your team lost 5-2, and you missed one of your teams goals on the phone")
+                    player["happiness"] -= 5
+                    print("Happiness - 5") 
+                return
+            elif choice == "2":
+                while True:
+                    print("\nWhen do you ask them to watch the game together?")
+                    print("1. During class")
+                    print("2. In the hallway")
+                    choice_1 = input("> ")
+                    if choice_1 == "1":
+                        print("\nYou bring up the game in the middle of class... " + crush["name"] + " says ok awkwardly. Maybe the timing wasn't good...")
+                        player["happiness"] -= 3
+                        print("Happiness - 3") 
+                        break
+                    elif choice_1 == "2":
+                        print("\n " + crush["name"] + " says they would love to go to the game with you :) You feel like things are progressing well")
+                        player["happiness"] += 5
+                        print("Happiness + 5")
+                        break
+                    else:
+                        print("Invalid choice, try again")
+                print("The two of you then sit at the back of the stand as the game is about to start...")
+                outcome = random.choice(["win", "draw", "loss"])
+                if outcome == "win":
+                    print(crush["name"] + " hugged you on every goal that your team scored! The two of you also shared the same bag of nachos")
+                    crush["affection"] += 5
+                    print("Affection + 5")
+                    player["happiness"] += 3
+                    print("Happiness + 3")
+                    return
+                elif outcome == "draw":
+                    print("You saw a thrilling game, and you enjoyed every moment with " + crush["name"] + ". You end up grabbing dinner together afterwards")
+                    crush["affection"] += 4
+                    print("Affection + 4")
+                    player["happiness"] += 5
+                    print("Happiness + 5")
+                    return
+                else:
+                    print("Your school lost and you felt upset, but " + crush["name"] + " gave you a hug and comforted you after the game!")
+                    crush["affection"] += 8
+                    print("Affection + 8")
+                    player["happiness"] -= 3
+                    print("Happiness - 3")
+                    return
+            elif choice == "3":
+                print("\nYou feel left out at first, but you make some new friends there and celebrate as your team gets their first win!")
+                popular_friends["respect"] += 5
+                print("Respect + 5")
+                player["happiness"] += 5
+                print("Happiness + 5")
+                return
+            else:
+                print("Invalid choice, try again")
+
+    #tt
+    elif sports["name"] == "Table Tennis":
+        print("\n---GAME 1---")
+        print("Your school is hosting the school down the road for the first team match of the season.")
+        print("You nervously step foot into the hall to see if your school wins.")
+        if crush["affection"] >= 40:
+            print("You spot " + crush["name"] + " on the bench, giving you an awkward thumbs up.")
+            crush["affection"] += 3
+            print("Affection + 3")
+        my_points = 0
+        their_points = 0
+        chance = min(0.9, 0.4 + sports["skills"] / 200)
+        won_doubles = False
+
+        if sports["position"] == "starter":
+            print("\nThe coach reads out the order. You are up first against their best player in singles, a tall kid with a deadly serve")
+            while True:
+                print("\nHow do you play it?")
+                print("1. Attack from the very first ball")
+                print("2. Stay back and block everything")
+                print("3. Mix up your serves and look for gaps")
+                choice = input("> ")
+                if choice == "1":
+                    print("\nYou go on the offensive. Most shots scor you points, though a couple fly off the end.")
+                    odds = chance
+                    break
+                elif choice == "2":
+                    print("\nYou stay low and block everything back. The rally just keeps going, and the tall kid is clearly getting impatient")
+                    odds = chance + 0.05
+                    break
+                elif choice == "3":
+                    print("\nYou keep changing your serve, line and length, spin and he starts guessing wrong")
+                    odds = chance + 0.1
+                    break
+                else:
+                    print("Invalid choice, try again")
+
+            if random.random() < odds:
+                print("You win the match in a tense final game. The home crowd cheers as you walk off.")
+                my_points += 1
+                sports["skills"] += 4
+                print("Table tennnis skills + 4")
+                popular_friends["respect"] += 3
+                print("Respect + 3")
+            else:
+                print("He takes the final game by a couple points. You shake hands, annoyed with yourself.")
+                their_points += 1
+                sports["skills"] += 2
+                print("Table Tennis skills + 2")
+
+            print("/nYour teammate plays the second singles on the next table, and you can barely watch.")
+            if random.random() < 0.5:
+                print("He wins in tight games, and you are happier than he is!")
+                my_points += 1
+            else:
+                print("He loses a close one, and the other school's coach cheers")
+                their_points += 1
+        else:
+            print("\nYou're not in the starting order today, so you sit on the bench, watching the first two matches nervously.")
+            for i in range(2):
+                if random.random() < 0.5:
+                    my_points += 1
+                else:
+                    their_points += 1
+            print("Both singles are over. Then the coach spins round and looks straight at you. 'The doubles player has rolled his ankle. You're on, go warm up.'")
+
+        #doubles
+        if my_points == "2":
+            print("\nYour school has already won the match, so the doubles is just for pride.")
+            ...     
+    #fb
     elif sports["name"] == "Football":
         ...
+    #cric
     else:
         ...
