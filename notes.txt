@@ -1,5 +1,4 @@
 Ideas-
-1.sports team training. make once, use after every 5-6 functions or so
 2.more jobs
 3.longer story
 4.start dating crush once midway through year
@@ -11,6 +10,6 @@ Ideas-
 
 
 What I did for devlogging-
-updated helpers.py for mroe stats
-working onmore story, quiz
-began working on student elections
+story- elections finished
+working on open day
+debugging quite a few errors from previous release- led to crash, typos, incomplete branches

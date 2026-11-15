@@ -651,9 +651,9 @@ def random_event_1():
                             player["grades"] -= 15
                             print("Grades - 15")
                             return
-                        elif j <1.0:
+                        elif j <= 1.0:
                             print("\nYou don't feel as guilty as before because you repayed the favour, even if he may not know it")
-                            player["happiness"] + 5
+                            player["happiness"] += 5
                             print("Happiness + 5")
                             return
                         else:

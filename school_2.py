@@ -383,7 +383,7 @@ def sports_1():
 #random event (again)!!!
 def random_event_2():
     if random.random() < 0.5:
-        print("\nYou are shopping with your parents one day before school reopens. Suddenly you see " + crush["name"] + "across the isles, but they haven't seen you yet.")
+        print("\nYou are shopping with your parents one day before school reopens. Suddenly you see " + crush["name"] + "across the aisles, but they haven't seen you yet.")
         while True:
             print("\n1. Go up to them and say hi")
             print("2. Act like you did not see them")
@@ -450,7 +450,7 @@ def choose_plan():
                     if random.random() < 0.5:
                         print("You push through the hard work and it pays off!")
                         player["grades"] += 10
-                        print("Grades + 12")
+                        print("Grades + 10")
                         player["happiness"] -= 3
                         print("Happiness - 3")
                     else:
@@ -484,7 +484,7 @@ def choose_plan():
             elif choice == "4" and sports["name"] != "":
                 print("\nYou drop a subject to keep your evenings free for the team. Your coach is thrilled, your teacher... less so")
                 sports["skills"] += 5
-                print(sports["name"]) + " skills + 5"
+                print(sports["name"] + " skills + 5")
                 player["grades"] -= 3
                 print("Grades - 3")
                 player["focus"] = "sport"
@@ -494,10 +494,10 @@ def choose_plan():
 
     #branch 2: getting a job
     elif plan == "job":
-        print("\nour teacher nods. 'You want to work after school. There are some practical routes this year, so let's find you one.'")
+        print("\nYour teacher nods. 'You want to work after school. There are some practical routes this year, so let's find you one.'")
         while True:
             print("\nWhat do you want to focus on?")
-            print("1. An work-experience placement")
+            print("1. A work-experience placement")
             print("2. A skills course")
             print("3. A talk with a local apprentice")
             if sports["name"] != "":
@@ -526,7 +526,7 @@ def choose_plan():
                 print("Respect + 5")
                 player["happiness"] += 5
                 print("Happiness + 5")
-                player["focus"] = "netowrking"
+                player["focus"] = "networking"
                 return
             elif choice == "4" and sports["name"] != "":
                 print("\nYou drop a subject to keep your evenings free for the team.")
@@ -639,7 +639,7 @@ def assignment_1():
                 player["grades"] += 5
                 print("Grades + 5")
                 return
-            elif roll() < 0.8:
+            elif roll < 0.8:
                 print("You are given average marks for the assignment. Nothing special but now you aren't afraid of your classmate")
                 player["grades"] += 5
                 print("Grades + 5")
@@ -666,7 +666,7 @@ def training_1():
 
     #intro for sports
     if sports["name"] == "Table tennis":
-        print("\nYour alarm goes off at 5 qm. Your bed is warm and comfy, but you have table tennis training.")
+        print("\nYour alarm goes off at 5 am. Your bed is warm and comfy, but you have table tennis training.")
     elif sports["name"] == "Football":
         print("\nYour phone buzzes at 5:45 am. It's freezing outside, but the team meets at the school field in half an hour.")
     else:
@@ -681,7 +681,7 @@ def training_1():
         if choice == "1":
             break
         elif choice == "2":
-            print("\nYou turn off the alarm and go back to sleep. Nobody says anything, but the coach definetly notices.")
+            print("\nYou turn off the alarm and go back to sleep. Nobody says anything, but the coach definitely notices.")
             sports["skills"] -= 10
             print(sports["name"] + " skills - 10")
             player["happiness"] += 3
@@ -751,6 +751,18 @@ def training_1():
                         sports["skills"] += 2
                         print("Table tennis skills + 2")
                     break
+                elif choice == "2":
+                    if random.random() < min(0.9, 0.6 + sports["skills"]/200):
+                        print("\nThe opponent is unable to return the ball, the coach claps.")
+                        sports["skills"] += 4
+                        print("Table tennis skills + 4")
+                        popular_friends["respect"] += 3
+                        print("Respect + 3")
+                    else:
+                        print("\nYou couldn't make a legal serve, so you concede a point there.")
+                        sports["skills"] += 2
+                        print("Table tennis skills + 2")
+                    break
                 else:
                     print("Invalid choice, try again")
 
@@ -770,9 +782,9 @@ def training_1():
                 elif choice == "2":
                     if random.random() < min(0.9, 0.4 + sports["skills"] / 200):
                         print("\nYou smash three in a row and the rally keeps going.")
-                        sports["skills"] + 8
+                        sports["skills"] += 8
                         print("Table tennis skills + 8")
-                        popular_friends["respect"] + 5
+                        popular_friends["respect"] += 5
                         print("Respect + 5")
                     else:
                         print("\nYou go for a big shot on the sixth ball and it flies out of the table. Your partner sighs...")
@@ -788,7 +800,7 @@ def training_1():
     elif sports["name"] == "Football":
 
         if drill == 1:
-            print("\nThe coch sets up the sprint ladders and holds a stopwatch. He notes everyone's time on a whiteboard.")
+            print("\nThe coach sets up the sprint ladders and holds a stopwatch. He notes everyone's time on a whiteboard.")
             while True:
                 print("\n1. Push hard to beat your best time")
                 print("2. Calm yourself and save energy")
@@ -820,7 +832,7 @@ def training_1():
                     print("Invalid choice, try again")
 
         elif drill == "2":
-            print("\nThe teach forms a cricle for a rondo, and somehow you ed up in the middle chasing the ball.")
+            print("\nThe teach forms a circle for a rondo, and somehow you ed up in the middle chasing the ball.")
             while True:
                 print("\n1. Chase the ball as hard as you can")
                 print("2. Stay calm and try to read the passes")
@@ -857,7 +869,7 @@ def training_1():
                 choice = input("> ")
                 if choice == "1":
                     print("\nYou slide the ball cleanly across and your teammate scores. He points at you as he celebrates")
-                    popular_friends["resepct"] == 5
+                    popular_friends["respect"] += 5
                     print("Respect + 5")
                     sports["skills"] += 3
                     print("Football skills + 3")
@@ -871,7 +883,7 @@ def training_1():
                         print("Happiness + 5")
                     else:
                         print("\nYou blast it way over the bar and it lands in the bushes behind the goal. A teammate has to go and find it.")
-                        sports["skills"] == 2
+                        sports["skills"] += 2
                         print("Football skills + 2")
                         popular_friends["respect"] -= 3
                         print("Respect - 3")
@@ -901,7 +913,7 @@ def training_1():
                         print("Happiness + 4")
                     else:
                         print("\nYou swing hard and the stumps fly off the ground. It's going to be a long evening.")
-                        sports["skills"] == 2
+                        sports["skills"] += 2
                         print("Cricket skills + 2")
                         player["happiness"] -= 3
                         print("Happiness - 3")
@@ -912,7 +924,7 @@ def training_1():
         elif drill == "2":
             print("\nIt's catching practise. The sun is blinding you but the coach keeps hitting high balls into the sky constantly")
             while True:
-                print("\n1. Call for it loudly and and go for every catch coming your way")
+                print("\n1. Call for it loudly and go for every catch coming your way")
                 print("2. Hang back and wait to see where it lands")
                 choice = input("> ")
                 if choice == "1":
@@ -952,7 +964,7 @@ def training_1():
                         print("Skills + 7")
                     else:
                         print("\nYou bowl consecutive wides and no balls... He's not happy")
-                        sports["skills"] == 2
+                        sports["skills"] += 2
                         print("Cricket skills + 2")
                     break
                 elif choice == "2":
@@ -976,7 +988,7 @@ def training_1():
         print("The coach calls you over after training. He says 'You've just earned your spot in the starting lineup. Keep up the good work.'")
         sports["position"] = "starter"
         player["happiness"] += 8
-        print("Happiness") + 8
+        print("Happiness + 8")
         popular_friends["respect"] += 5
         print("Respect + 5")
     elif sports["position"] == "starter" and sports["skills"] < 35:
@@ -984,8 +996,8 @@ def training_1():
         player["happiness"] -= 3
         print("Happiness - 3")
     elif sports["skills"] >= 80:
-        print("The coach nods at you and tells the others that you are on of the best on the team")
-        player["happines"] += 5
+        print("The coach nods at you and tells the others that you are one of the best on the team")
+        player["happiness"] += 5
         print("Happiness + 5")
     else:
         print("The coach tells you to keep training , you have potential")
@@ -1097,22 +1109,147 @@ def elections_1():
         print("3. 'Vote for me cause everyone else running is boring'")
         choice = input("> ")
         if choice == "1":
-            print("You become popular amongst every class for your slogan. However some teachers laugh behind your back at your unrealistic promise")
+            player["slogan"] = "lunch"
+            print("\nYou become popular amongst every class for your slogan. However some teachers laugh behind your back at your unrealistic promise")
             popular_friends["respect"] += 10
             print("Respect + 10")
             return
         elif choice == "2":
-            print("Students and teachers like your idea. You feel happy")
+            player["slogan"] = "change"
+            print("\nStudents and teachers like your idea. You feel happy")
             popular_friends["respect"] += 7
             print("Respect + 7")
             player["happiness"] += 3
+            print("Happiness + 3")
             return
         elif choice == "3":
-            print("It is a very low effort election campaign according to teacher, but your friends and " + crush["name"] + " find it funny")
+            player["slogan"] = "boring"
+            print("\nIt is a very low effort election campaign according to teacher, but your friends and " + crush["name"] + " find it funny")
             popular_friends["respect"] -= 4
             print("Respect - 4")
             player["happiness"] += 5
             print("Happiness + 5")
             return
         else:
+            print("\nInvalid choice, try again")
+
+#final voting
+def elections_2():
+    win_score = 40
+    slogan = player.get("slogan", "")
+    print("\nVoting day has come, it's time to see if you are elected in student council!")
+    print("Before the votes are counted, every candidate gets two minutes on stage in front of the whole school.")
+
+    #setting score
+    score = popular_friends["respect"]
+    if player["grades"] >= 60:
+        score += 15
+    if crush["affection"] >= 40:
+        score += 10
+    if sports["name"] != "" and sports["skills"] >= 60:
+        score += 12
+
+    #the actl spech
+    while True:
+        print("\nWhat do you say?")
+        print("1. Stick to the promise on your poster")
+        print("2. Be honest about what you can actually change")
+        print("3. Make the whole hall laugh")
+        choice = input("> ")
+
+        if choice == "1":
+            if slogan == "lunch":
+                print("\nYou promise free lunch again, the hall roars. A few teachers exchange looks, but nobody can drown out the cheering.")
+                score += 30
+            elif slogan == "change":
+                print("\nYou repeat your plan for better facilities. It's clear and sensible, and people nod along.")
+                score += 20
+            else:
+                print("\nYou tell everyone the other candidates are boring. A few people laugh, but most of the hall stares back at you blankly.")
+                score += 10
+            break
+        elif choice == "2":
+            print("\nYou tell everyone you can't fix everything, but you will listen and try. People clap...")
+            score += 20
+            if player["grades"] >= 60:
+                print("Your grades make the promise believable, and a teach  nods at you from the side.")
+                score += 7
+            player["happiness"] += 3
+            print("Happiness + 3")
+            break
+        elif choice == "3":
+            if random.random() < 0.6:
+                print("\nYour joke lands, and the whole hall is laughing. Even the principal is smiling.")
+                score += 10
+                player["happiness"] += 5
+                print("Happiness + 5")
+            else:
+                print("\nYou tell a joke and it goes down very badly. Someone coughs in the silence.")
+                score -= 6
+                player["happiness"] -= 4
+                print("Happiness - 4")
+            break
+        else:
             print("Invalid choice, try again")
+
+    #random luck shi
+    score += random.randint(-5,8)
+
+    print("\nThe votes are counted. The whole school waits in silence...")
+    if score >= win_score + 15:
+        print("\nYou win by a huge margin! The hall erupts and you are pulled up onto people's shoulders.")
+        player["council"] = True
+        popular_friends["respect"] += 10
+        print("Respect + 10")
+        player["happiness"] += 12
+        print("Happiness + 12")
+    elif score >= win_score:
+        print("\nYou win by a handful of votes! It was so close that the teachers had to recount again.")
+        player["council"] = True
+        popular_friends["respect"] += 5
+        print("Respect + 5")
+        player["happiness"] += 8
+        print("Happiness + 8")
+    elif score >= win_score - 15:
+        print("\nYou lose by just a few votes. It stings, but the winner shakes your hand and congratulates you on your good campaign.")
+        popular_friends["respect"] += 2
+        print("Respect + 2")
+        player["happiness"] -= 5
+        print("Happiness - 5")
+    else:
+        print("\nYou lose by a wide margin. You clap for the winner, but it hurts...")
+        popular_friends["respect"] -= 3
+        print("Respect - 3")
+        player["happiness"] -= 10
+        print("Happiness - 10")
+        if crush["affection"] >= 50:
+            print(crush["name"] + " finds you afterwards and tells you they voted for you.")
+            crush["affection"] += 3
+            print("Affection + 3")
+
+#open day for unis- relates to earlier plan chosen
+def open_day():
+    print("\n---OPEN DAY---")
+    print("Your school has arranged a trip to let you explore what could come after graduation")
+    plan = player["plan"]
+    #1 uni
+    if plan == "university":
+        print("\nThe bus pulls up to a huge university campus. You notice students rushing for lectures with coffee in their hands.")
+        print("A guide hands you a brochure and map. You see that there are 3 different talks this morning.")
+        while True:
+            print("\nWhere do you go first?")
+            print("1. The science and engineering talk")
+            print("2. The arts and humanities talk")
+            print("3. A chat with current students in a cafe")
+            choice = input("> ")
+            if choice == "1":
+                print("\nThe lecturer shows a robot arm that can pour tea, and half the room gasps")
+                if player["focus"] == "heavy":
+                    print("You have been engaged in maths and science since the start of the year, so you follow every word. " \
+                    "\nAfterwards the lecturer notices your questions and hands you a card")
+                    player["grades"] += 6
+                    print("Grades + 6")
+                    player["happiness"] += 5
+                    print("Happiness + 5")
+                    ...
+                    #to be completed
