@@ -1,5 +1,5 @@
 player = {"money": 50, "health": 100, "happiness": 50, "grades": 50, "age": 16, "class": "11", "suspension": False, "grounded": False,
-           "cheated" : False, "prom_with" : "", "plan": "", "focus" : "",
+           "cheated" : False, "prom_with" : "", "plan": "", "focus" : "", "interest" : "",
            "slogan" : "" , "council" : False}
 popular_friends = {"met": False, "respect": 0}
 crush = {"met": False, "affection": 0, "name": ""}
@@ -13,7 +13,7 @@ sports = {"name": "", "skills": 50, "position": "", "sessions" : 0}
 #RESET age : 16
 #RESET class : 11
 #RESET suspension, grounded, cheated : False
-#RESET prom_with, plan, focus : ""
+#RESET prom_with, plan, focus, slogan, interest : ""
 
 #---POPULAR FRIENDS LIST---#
 #RESET met : False

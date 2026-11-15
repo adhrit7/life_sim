@@ -45,6 +45,7 @@ scenes = [
     school_2.pop_quiz_1,
     school_2.elections_1,
     school_2.elections_2,
+    school_2.open_day,
 ]
 
 for scene in scenes:

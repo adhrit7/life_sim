@@ -4,12 +4,9 @@ Ideas-
 4.start dating crush once midway through year
 5.vacation
 6.driving test
-7.work on a field trip
 8.concert maybe
  ...
 
 
 What I did for devlogging-
-story- elections finished
-working on open day
-debugging quite a few errors from previous release- led to crash, typos, incomplete branches
+finished on open day

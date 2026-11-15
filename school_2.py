@@ -1235,7 +1235,7 @@ def open_day():
     #1 uni
     if plan == "university":
         print("\nThe bus pulls up to a huge university campus. You notice students rushing for lectures with coffee in their hands.")
-        print("A guide hands you a brochure and map. You see that there are 3 different talks this morning.")
+        print("A guide hands you a brochure and map. You see that there are 3 different talks this morning")
         while True:
             print("\nWhere do you go first?")
             print("1. The science and engineering talk")
@@ -1251,5 +1251,134 @@ def open_day():
                     print("Grades + 6")
                     player["happiness"] += 5
                     print("Happiness + 5")
-                    ...
-                    #to be completed
+                elif player["grades"] < 50:
+                    print("You got lost within 5 minutes. You froze when the lecturer asks you a question.")
+                    player["happiness"] -= 4
+                    print("Happiness - 4")
+                    player["grades"] += 2
+                    print("Grades + 2")
+                else:
+                    print("It's over your head in places, but you leave with a lot to think about.")
+                    player["grades"] += 3
+                    print("Grades + 3")
+                player["interest"] = "science"
+                break
+            elif choice == "2":
+                print("\nThe speaker reads out a short story and then asks the audience what it meant. People debate and it's strangely fun for you.")
+                if player["focus"] == "creative":
+                    print("You pick subjects you enjoy, so you jump in. The speaker nods and says you would fit right in.")
+                    player["happiness"] += 8
+                    print("Happiness + 8")
+                    player["grades"] += 4
+                    print("Grades + 4")
+                else:
+                    print("You listen more than you speak, but you leave feeling relaxed.")
+                    player["happiness"] += 5
+                    print("Happiness + 5")
+                player["interest"] = "arts"
+                break
+            elif choice == "3":
+                print("\nA few students gather in a cafe and tell you what it's really like: the late nights of grinding, instant noodles and the friends you make!")
+                popular_friends["respect"] += 3
+                print("Respect + 3")
+                player["happiness"] += 5
+                print("Happiness + 5")
+                player["interest"] = "student life"
+                break
+            else:
+                print("Invalid choice, try again")
+
+    #2 job
+    elif plan == "job":
+        print("\nYou step into a big hall filled with stalls from local businesses. People in neat uniforms hand out leaflets and pens.")
+        print("Everyone looks busy, and you are unsure where to start")
+        while True:
+            print("\nWhat do you do?")
+            print("1. Talk to an employer about getting hired")
+            print("2. Try a hands-on demo at a stall")
+            print("3. Ask a young employee what the job is really like")
+            choice = input("> ")
+            if choice == "1":
+                print("\nThe employer looks you up and down and ask why they should pick you.")
+                if player["grades"] >= 60 or popular_friends["respect"] >= 50:
+                    print("You answer confidently, and she asks you to come in for. trial shift")
+                    player["money"] += 25
+                    print("Money + 25")
+                    popular_friends["respect"] += 3
+                    print("Respect + 3")
+                else:
+                    print("You stumble over your answer. But she takesdown your name and says she will be in touch")
+                    player["happiness"] -= 3
+                    print("Happiness - 3")
+                player["interest"] = "employer"
+                break
+            if choice == "2":
+                print("\nYou get handed a tool you have never seen before and told to have a go.")
+                if random.random() < 0.6:
+                    print("To everyone's surprise, you get it right the first time!")
+                    player["happiness"] += 8
+                    print("Happiness + 8")
+                    popular_friends["respect"] += 3
+                    print("Respect + 3")
+                else:
+                    print("It jams, then clatters to the floor. The stall owner laughs, and so do you.")
+                    player["happiness"] -= 2
+                    print("Happiness - 2")
+                    player["interest"] = "hands on"
+                break
+            elif choice == "3":
+                print("\nA young employee tells you the truth, the hours are long, and the pay is okay, but interacting with people makes it worth it.")
+                player["grades"] += 2
+                print("Grades + 2")
+                player["happiness"] += 4
+                print("Happiness + 4")
+                player["interest"] = "honest advice"
+                break
+            else:
+                print("Invalid choice, try again")
+
+    #3. unsure + wrong input
+    else:
+        print("\nThe school has bundled a bit of everything into one day: a campus visit in the morning and a careers fair after lunch.")
+        while True:
+            print("\nWhere do you spend your time?")
+            print("1. Stick with the campus tour")
+            print("2. Stick with the careers fair")
+            print("3. Wander between the two without a plan")
+            choice = input("> ")
+            if choice == "1":
+                print("\nYou follow the tour around lecture halls and labs. By the end, you picture yourself in one of those seats")
+                player["plan"] = "university"
+                player["grades"] += 3
+                print("Grades + 3")
+                player["interest"] = "campus"
+                print("You think you might actually want to go to university")
+                break
+            elif choice == "2":
+                print("\nYou spend the afternoon chatting with strangers in lanyards. Someone offers you a work-experience slot.")
+                player["plan"] = "job"
+                player["money"] += 15
+                print("Money + 15")
+                player["interest"] = "careers"
+                print("You think you might actually want to start work.")
+                break
+            elif choice == "3":
+                print("\nYou drift from stall to stall, only picking up leaflets but no clearer idea")
+                player["happines"] -= 3
+                print("Happiness") - 3
+                player["interest"] = "undecided"
+                break
+            else:
+                print("Invalid choice, try again")
+    print("\nOn the bus home, everyone is tired and quiet. You watch the sun set over a beautiful sky and think about what is next")
+
+
+def match_1():
+    if sports["name"] == "":
+        return
+    if sports["name"] == "Table Tennis":
+        ...
+    elif sports["name"] == "Football":
+        ...
+    else:
+        ...
