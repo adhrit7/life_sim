@@ -1519,10 +1519,198 @@ def match_1():
         #doubles
         if my_points == "2":
             print("\nYour school has already won the match, so the doubles is just for pride.")
-            ...     
+        elif their_points == "2":
+            print("\nYour school has already lost the match, so the double is just for pride.")
+        else:
+            print("\nIt's level at 1-1. The doubles will decide the entire match.")
+
+        print("You and your partner walk up to the table. Your partner grips their racket so tightly their knuckles go white.")
+        while True:
+            print("\nWhat do you do?")
+            print("1. Take charge and hit most of the shots yourself")
+            print("2. Talk it through and trust your partner")
+            print("3. Crack a joke and calm their nerves")
+            choice = input("> ")
+            if choice == "1":
+                print("\nYou grunt at every hit and dive for everything. It's quite exhuasting")
+                odds = chance - 0.05
+            elif choice == "2":
+                print("\nYou agree on a plan. Your partner nods and visibly relaxes")
+                odds = chance + 0.1
+                break
+            elif choice == "3":
+                print("\nYou whisper something ridiculous about the umpire's moustache, and your partner laughs. The tension drops.")
+                odds = chance + 0.05
+                break
+            else:
+                print("Invalid choice, try again")
+
+        if random.random() < odds:
+            print("You take the deciding game 11-9, and your partner jumps into your arms!")
+            my_points += 1
+            won_doubles = True
+            sports["skills"] += 4
+            print("Table Tennis skills + 4")
+        else:
+            print("It slips away in the last few points, and the other pair celebrate.")
+            their_points += 1
+            sports["skills"] += 2
+            print("Table Tennis skills + 2")
+
+        print("\nFinal score: your school " + str(my_points) + ", them + " + str(their_points) + ".")
+        if my_points >=2:
+            print("Your school wins the match! The coach lines everyone up for a handshake and a team photo.")
+            player["happiness"] += 10
+            print("Happiness + 10")
+            popular_friends["respect"] += 6
+            print("Respect + 6")
+        else:
+            print("Your school loses the match. It stings, but the coach tells everyone there's a whole season left.")
+            player["happiness"] += 5
+            print("Happiness + 5")
+
+        if sports["position"] != "starter" and won_doubles:
+            print("\nAfter the match, the coach pulls you aside. 'That's what I wanted to see. You're in the starting order from next time'")
+            sports["position"] = "starter"
+            player["happiness"] += 5
+            print("Happiness + 5")
     #fb
     elif sports["name"] == "Football":
-        ...
-    #cric
-    else:
+        print("---MATCHDAY---")
+        print("The first home game of the season, and the stands are fuller than you expected. The floodlights are on,  the grass smells freshly cut , you are excited.")
+        if crush["affection"] >= 40:
+            print("You spot " + crush["name"] + " near the front of the stand, waving a scarf at you")
+            crush["affection"] += 3
+            print("Affection + 3")
+
+        team_goals = 0
+        opp_goals = 0
+        chance = min(0.9, 0.4 + sports["skills"] / 200)
+        impact = False
+
+        #first half
+        if sports["position"] == "starter":
+            print("\nThe coach reads out the starting eleven, and your name is in it. You jog onto the pitch, trying to look calm.")
+            print("\nTen minutes in, the ball drops to you just outside the box")
+            while True:
+                print("\nwhat do you do?")
+                print("1. Hit it first time")
+                print("2. Roll a pass to the winger on your left")
+                print("3. Take a touch and dribble past the defender")
+                choice = input("> ")
+                if choice == "1":
+                    print("\nYou don't think, you just strike it.")
+                    odds = chance - 0.1
+                    kind = "shot"
+                    break
+                elif choice == "2":
+                    print("\nYou let it out wide and the winger is already racing away.")
+                    odds = chance + 0.15
+                    kind = "pass"
+                    break
+                elif choice == "3":
+                    print("\nYou shift your weight one way, then another, and the defender stumbles.")
+                    odds = chance
+                    kind = "dribble"
+                    break
+                else:
+                    print("Invalid choice, try again")
+
+            if random.random() < odds:
+                if kind == "shot":
+                    print("It flies into the top corner! The stand erupts!")
+                elif kind == "pass":
+                    print("Your winger squares it and the striker taps it in. Your coach claps fromthe sidelines")
+                else:
+                    print("You glide past him and slot it calmly into the corner.")
+                team_goals += 1
+                impact = True
+                sports["skills"] += 4
+                print("Football skills + 4")
+                popular_friends["respect"] += 3
+                print("respect + 3")
+            else:
+                print("The chance is saved, and the keeper claps his hand in relief. You put a hand on your head")
+                sports["skills"] += 1
+                print("Football skills + 1")
+            opp_goals += random.randint(0,2)
+        else:
+            print("\nYou start on the bench with a tracksuit over your shirt and your knees bouncing, watching ever pass carefully")
+            team_goals += random.randint(0,2)
+            opp_goals += random.randint(0,2)
+            print("\nIn the 60th minute of the match the coach says to you 'Warm up, you're going on'")
+        print("Current score: your school " + str(team_goals) + ", them " + str(opp_goals))
+        print("\nWith twnty minutes left, the. game is stretched and tired legs everywhere")
+        while True:
+            print("\nWhat do you do?")
+            print("1. Press their defenders high and force a mistake")
+            print("2. Hold your shape and protect the scoreline")
+            print("3. Run in behind and ask for the ball")
+            choice = input("> ")
+            if choice == "1":
+                print("\nYou sprint at their centre-back the moment he gets the ball, and he panics.")
+                if random.random() < chance:
+                    print("He plays it straight to you, and you roll it into the empty net!")
+                    team_goals += 1
+                    impact = True
+                    sports["skills"] += 4
+                    print("Football skills + 4")
+                else:
+                    print("He gets rid of it at the last second, and their counter-attack catches your tired team.")
+                    opp_goals += random.randint(0,1)
+                    sports["skills"] += 1
+                    print("Football skills + 1")
+                break
+            elif choice == "2":
+                print("\nYou drop back and help the defence stay compact.")
+                if random.random() < chance + 0.15:
+                    print("You and the back line clear everything they throw at you. Nothing gets through.")
+                    sports["skills"] += 3
+                    print("Football skills + 3")
+                else:
+                    print("A defender slips, and suddenly they're through on goal. The shot goes in.")
+                    opp_goals += 1
+                    sports["skills"] += 1
+                    print("Football skills + 1")
+                break
+            elif choice == "3":
+                print("\nYou ignore your burning legs and sprint in behind their defence, arm raised.")
+                if random. random() < chance - 0.05:
+                    print("The through ball arrives perfectly, and you finish it past the keeper!")
+                    team_goals += 1
+                    impact = True
+                    sports["skills"] += 4
+                    print("Football skills + 4")
+                else:
+                    print("The flag goes up. Offside :( ")
+                    sports["skills"] += 1
+                    print("Football skills + 1")
+                break
+            else:
+                print("Invalid choice, try again")
+
+        print("\nFull time: your school " + str(team_goals) + ", them " + str(opp_goals))
+        if team_goals > opp_goals:
+            print("Your school wins! Your teammates pile on top of each other.")
+            player["happiness"] += 10
+            print("Happiness + 10")
+            popular_friends["respect"] += 6
+            print("Respect + 6")
+        elif team_goals == opp_goals:
+            print("It end level. Both teams shake hands, a bit dissapointed")
+            player["happiness"] += 2
+            print("Happiness + 2")
+        else:
+            print("Your school loses. It hurts, but the coach tells. everyone to keep their heads up.")
+            player["happiness"] -= 5
+            print("Happiness - 5")
+
+        if sports["position"] != "starter" and impact:
+            print("\nAfter the match, the coach pulls you aside. He tells you that you had a great game, and if you train harder you might become a starter soon")
+            sports["happiness"] += 5
+            print("Happiness + 5")
+    #cricket
+    elif sports["name"] == "Cricket":
+        print("\n---FIRST MATCH---")
+        print("It's a warm afternoon at the school ground. White ropes mark the boundary. The other team has batted first and set your side 110 to win.")
         ...
