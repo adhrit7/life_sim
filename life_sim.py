@@ -47,6 +47,7 @@ scenes = [
     school_2.elections_2,
     school_2.open_day,
     school_2.match_1,
+    school_2.mock_interview,
 ]
 
 for scene in scenes:

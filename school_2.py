@@ -1500,7 +1500,7 @@ def match_1():
                 sports["skills"] += 2
                 print("Table Tennis skills + 2")
 
-            print("/nYour teammate plays the second singles on the next table, and you can barely watch.")
+            print("\nYour teammate plays the second singles on the next table, and you can barely watch.")
             if random.random() < 0.5:
                 print("He wins in tight games, and you are happier than he is!")
                 my_points += 1
@@ -1517,7 +1517,7 @@ def match_1():
             print("Both singles are over. Then the coach spins round and looks straight at you. 'The doubles player has rolled his ankle. You're on, go warm up.'")
 
         #doubles
-        if my_points == "2":
+        if my_points == 2:
             print("\nYour school has already won the match, so the doubles is just for pride.")
         elif their_points == "2":
             print("\nYour school has already lost the match, so the double is just for pride.")
@@ -1566,8 +1566,8 @@ def match_1():
             print("Respect + 6")
         else:
             print("Your school loses the match. It stings, but the coach tells everyone there's a whole season left.")
-            player["happiness"] += 5
-            print("Happiness + 5")
+            player["happiness"] -= 5
+            print("Happiness - 5")
 
         if sports["position"] != "starter" and won_doubles:
             print("\nAfter the match, the coach pulls you aside. 'That's what I wanted to see. You're in the starting order from next time'")
@@ -1707,7 +1707,7 @@ def match_1():
 
         if sports["position"] != "starter" and impact:
             print("\nAfter the match, the coach pulls you aside. He tells you that you had a great game, and if you train harder you might become a starter soon")
-            sports["happiness"] += 5
+            player["happiness"] += 5
             print("Happiness + 5")
     #cricket
     elif sports["name"] == "Cricket":
@@ -1824,7 +1824,7 @@ def match_1():
 
         if won:
             print("\nYour school wins the match! Everyone shakes hands, and the coach hands out cold drinks.")
-            print("happiness") += 10
+            player["happiness"] += 10
             print("Happiness + 10")
             popular_friends["respect"] += 6
             print("Respect + 6")
@@ -1868,7 +1868,7 @@ def mock_interview():
     #q1
     print("\n'Let's start simple,' they say. 'why do you want this?'")
     while True:
-        print("\nGive an honest answer about what you actually want")
+        print("\n1.Give an honest answer about what you actually want")
         if has_interest:
             print("2. Talk about what you saw on open day")
         else:
@@ -1940,4 +1940,145 @@ def mock_interview():
             print("\nThey raise an eyebrow. 'Everyone has weaknesses,' they say, and write something down.")
             score -= 1
             break
-        ...
+        else:
+            print("Invalid choice, try again")
+
+
+    #q3
+    print("\n'Last one,' they say, putting down their pen. 'Tell me about something you are proud of.'")
+    while True:
+        print("\n1. Your grades and the work behind them")
+        if sports["name"] != "":
+            print("2. Playing for the school " + sports["name"] + " team")
+        else:
+            print("2. Helping friends through a rough patch")
+        if on_council:
+            print("3. Winning a place on student council")
+        else:
+            print("3. Teacher yourself something new on your own")
+        choice = input("> ")
+
+        if choice == "1":
+            if player["grades"] >= 60:
+                print("\nYou walk them through how much you have improved, and the extra hours you put in. Your grades back it up.")
+                score += 3
+            else:
+                print("\nYou talk about effort and how far you have come, though they glance at your results and look doubtful.")
+                score += 1
+            break
+        elif choice == "2":
+            if sports["name"] != "":
+                print("\nYou describe early training sessions and the nerves before a match. They see, to like how you talk about the team.")
+                if sports["skills"] >= 35:
+                    score += 3
+                else:
+                    score += 2
+            else:
+                print("\nYou describe a friend who was struggling, and how you showed up for them. It's the most personal answer you have given all day.")
+                score += 2
+            break
+        elif choice == "3":
+            if on_council:
+                print("\nYou describe the campaign, the speech, and the moment the votes were read out. They lean back and look impressed.")
+                score += 3
+            else:
+                print("\nYou describe learning something because you were curious, not because anyone told you to. They nod slowly")
+                score += 2
+            break
+        else:
+            print("Invalid choice, try again")
+
+    #result
+    print("\nThey close the folder and smile. 'Thank you. I'll give you some feedback.'")
+    if score >= pass_score:
+        print("\n'That was one of the strongest interviews I have seen from a student,'they say.")
+        player["interview"] = "good"
+        player["happiness"] += 10
+        print("Happiness + 10")
+        if plan == "university":
+            player["grades"] += 5
+            print("Grades + 5")
+        elif plan == "job":
+            player["money"] += 25
+            print("Money + 25")
+        else:
+            popular_friends["respect"] += 3
+            print("Respect + 3")
+    elif score >= mid_score:
+        print("\n'That was solid,' they say")
+        player["interview"] = "mid"
+        player["happiness"] += 3
+        print("Happiness + 3")
+    else:
+        print("\n'It's good you did this now and not for real,' they say kindly. They tell you to be more specific and honest next time.")
+        player["interview"] = "poor"
+        player["happiness"] -= 6
+        print("Happiness - 6")
+    print("\nYou walk back out into the corridor, a bit wobbly, and let out a very long breath.")
+
+
+#random shi
+def gta123():
+    i = random.random()
+    j= random.random()
+    print("\nYou are back in your classes,and need a break but you can't keep your mind off of the fact that GTA VI is finally releasing")
+    while True:
+        print("What do you do?")
+        print("1. Act like you are 18 already and buy it in the store")
+        print("2. Buy it from a shady online seller")
+        choice = input("> ")
+        if choice == "1":
+            print("\nAfter school you go to the game store, you deepen your voice and ask the vendor for GTA VI")
+            print("Just before you are about to pay, he requests your ID")
+            while True:
+                print("1. Run away empty handed")
+                print("2. Steal the game")
+                choice_1 = input("> ")
+                if choice_1 == "1":
+                    if i <= 0.7:
+                        print("\nLuckily you manage to get away, and the vendor does not chase after you. You did drop some cash on the way")
+                        player["money"] -= 4
+                        print("Money - 4")
+                        return
+                    else:
+                        print("\nThe store security manages to catch you, and report you to your parents. They scold you harshly")
+                        player["happiness"] -= 10
+                        print("Happiness - 10")
+                        return
+                elif choice_1 == "2":
+                    if j < 0.4:
+                        print("\nYou managed to escape security and reach home in time. You feel sick, but atleast you got the game")
+                        player["health"] -= 7
+                        print("Health - 7")
+                        player["happiness"] += 10
+                        print("Happiness + 10")
+                        return
+                    else:
+                        print("\nThe shop owner blackmails to report you to the police if you don't give him all your money... You sadly have to comply")
+                        player["money"] = 0
+                        player["happiness"] -= 10
+                        print("Happiness - 10")
+                        return
+                else:
+                    print("Invalid choice, try again")
+        elif choice == "2":
+            if i < 0.5:
+                print("You end up getting scammed and lose all your money")
+                player["money"] = 0
+                player["happiness"] -= 10
+                print("Happiness - 10")
+                return
+            elif i < 0.75:
+                print("\nTurns out the game he sold you is some fake copy, which is almost unplayable")
+                player["money"] -= 10
+                print("Money - 10")
+                player["happiness"] -= 5
+                print("Happiness - 5")
+                return
+            else:
+                print("\nYou are one of the first people from your school to be able to buy the game! You feel great")
+                player["happiness"] += 10
+                print("Happiness + 10")
+                return
+        else:
+            print("Invalid choice, try again")
