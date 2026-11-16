@@ -1372,7 +1372,7 @@ def open_day():
                 print("Invalid choice, try again")
     print("\nOn the bus home, everyone is tired and quiet. You watch the sun set over a beautiful sky and think about what is next")
 
-
+#first game of the season
 def match_1():
     #spectator
     if sports["name"] == "":
@@ -1712,5 +1712,232 @@ def match_1():
     #cricket
     elif sports["name"] == "Cricket":
         print("\n---FIRST MATCH---")
-        print("It's a warm afternoon at the school ground. White ropes mark the boundary. The other team has batted first and set your side 110 to win.")
+        print("It's a warm afternoon at the school ground. White ropes mark the boundary. The other team has opted to bat first ")
+        if crush["met"] and crush["affection"] >= 40:
+            print("You spot " + crush["name"] + "sitting on the grass near the rope, shading their eyes to watch you.")
+            crush["affection"] += 3
+            print("Affection + 3")
+
+        chance = min(0.9, 0.4 + sports["skills"] / 200)
+        impact = False
+        won = False
+
+        if sports["position"] == "starter":
+            print("\nThey are batting, and you've been placed near the boundary rope. The batsman hits the ball high, straight at you.")
+        else:
+            print("\nYou sit on the bench, but in the fourteenth over a fielder gets a concussion. He is rushed off and you are placed as a substitute")
+            print("Your very first ball is a mistimed shot, coming straight at you.")
+        while True:
+            print("\nWhat do you do?")
+            print("1. Call for it and go for the catch")
+            print("2. Let the nearest teammate take it")
+            choice = input("> ")
+            if choice == "1":
+                if random.random() < chance + 0.1:
+                    print("\nYou call it loudly, get under it, and the ball drops safely into your hands. Your teammates cheer you!")
+                    popular_friends["respect"] += 4
+                    print("Respect + 4")
+                    sports["skills"] += 3
+                    print("Cricket skills + 3")
+                    impact = True
+                else:
+                    print("\nYou lose it in the sun. It bounces off your fingers and over the rope for four, a few people groan")
+                    popular_friends["respect"] -= 2
+                    print("Respect - 2")
+                    sports["skills"] += 1
+                    print("Cricket skills + 1")
+                break
+            elif choice == "2":
+                print("\nYou shout for your teammate to take it, and he does safely.")
+                break
+            else:
+                print("Invalid choice, try again")
+
+        if sports["position"] == "starter":
+            print("\nTime to chase. You walk out at number three with your team 20 for 1, and the scoreboard says 90 more are needed.")
+            while True:
+                print("\nHow do you bat?")
+                print("1. Build an innings and leave everything outside off stump (harder to hit area)")
+                print("2. Attack from the very first ball")
+                print("3. Rotate the strike and keep the scoreboard moving (take singles often)")
+                choice = input("> ")
+                if choice == "1":
+                    print("\nYou play late and straight, picking up ones and twos. Slowly, the scoreboard starts moving.")
+                    runs = random. randint(18,32) + sports["skills"] // 10
+                    break
+                elif choice == "2":
+                    print("\nYou step down the pitch to the very first ball.")
+                    if random.random() < chance - 0.05:
+                        print("It sails over the rope for six!")
+                        runs = random.randint(35,60)
+                    else:
+                        print("You swing and miss, and the ball goes straight through the stumps.")
+                        runs = random.randint(0,9)
+                    break
+                elif choice == "3":
+                    print("\nYou run hard on every single, keeping the fielders busy and the bowler frustrated.")
+                    runs = random.randint(15,28) + sports["skills"] // 8
+                    break
+                else:
+                    print("Invalid choice, try again")
+
+            print("\nYou finish with " + str(runs) + "runs.")
+            team_total = 20 + runs + random.randint(45,80)
+            print("Your team ends on " + str(team_total) + " against a targt of 110.")
+            won = team_total >= 110
+            sports["skills"] += 2
+            print("Cricket skills + 2")
+        else:
+            print("\nThe chase goes down to the wire.  When the ninth wicket falls, the coach looks at you.")
+            print("'You're in at number 11'. Your team needs 10 more runs off the last 12 balls, with one wicket left... one slip up and you lose")
+            while True:
+                print("\nWhat do you do")
+                print("1. Block everything and let the other batsman take the strike")
+                print("2. Swing for the fences")
+                print("3. Run hard singles and keep the pressure on")
+                choice = input("> ")
+                if choice == "1":
+                    print("\nYou tell the other batsman to take the strike and you block every ball you face")
+                    odds = chance + 0.1
+                    break
+                elif choice == "2":
+                    print("\nYou take a deep breath and swing as hard as you can")
+                    odds = chance - 0.05
+                    break
+                elif choice == "3":
+                    print("\nYou sprint every run, shouting for your partner to keep up")
+                    odds = chance
+                    break
+                else:
+                    print("Invalid choice, try again")
+
+            if random.random() < odds:
+                print("\nThe winning run comes off the second last ball and your whole team celebrates")
+                won = True
+                impact = True
+                sports["skills"] += 5
+                print("Cricket skills + 5")
+            else:
+                print("\nYou fall short by a few runs, and the match slips away")
+                sports["skills"] += 2
+                print("Cricket skills + 2")
+
+        if won:
+            print("\nYour school wins the match! Everyone shakes hands, and the coach hands out cold drinks.")
+            print("happiness") += 10
+            print("Happiness + 10")
+            popular_friends["respect"] += 6
+            print("Respect + 6")
+        else:
+            print("\nYour school loses the match. It stings, but the coach says there's plent of season left.")
+            player["happiness"] -= 5
+            print("Happiness - 5")
+        if sports["position"]!= "starter" and impact:
+            print("\nAfter the game, the coach pulls you aside and tells you that you played well, and keep up the good work to become a starting player")
+            player["happiness"] += 5
+            print("Happiness + 5")
+
+def mock_interview():
+    pass_score = 8
+    mid_score = 4
+    plan = player["plan"]
+    interest = player.get("interest", "")
+    has_interest = interest not in ("", "undecided")
+    on_council = player.get("council", False)
+    print("\n---MOCK INTERVIEW---")
+    print("Your scholl has arranged practice interviews with visitors from outside, to get seniors ready for what's coming.")
+
+    if plan == "university":
+        print("\nYou are shown into a small office. Across the desk sits an admission tutor with a stack of folders and a very neutral face")
+    elif plan == "job":
+        print("\nYou are shown into the staff room. A manager from a local company is waiting for you.")
+    else:
+        print("\nYou are shown into the career counselors office. An adviser smiles and tells you to relax, which makes you more nervous.")
+
+    #possible head start
+    score = 0
+    if player["grades"] >= 60:
+        score += 2
+    elif player["grades"] < 35:
+        score -= 1
+    if popular_friends["respect"] >= 30:
+        score += 1
+    if player["focus"] == "heavy":
+        score += 1
+
+    #q1
+    print("\n'Let's start simple,' they say. 'why do you want this?'")
+    while True:
+        print("\nGive an honest answer about what you actually want")
+        if has_interest:
+            print("2. Talk about what you saw on open day")
+        else:
+            print("2. Give a polished, rehearsed answer")
+        print("3. Joke that it beats being at home")
+        choice = input("> ")
+
+        if choice == "1":
+            print("\nYou say it plainly, even the parts you're unsure about. They stop writing and actually look up to you.")
+            score += 2
+            break
+        elif choice == "2":
+            if has_interest:
+                print("\nYou describe the " + interest + " side of open day in detail, and what stuck with you afterwards. They nod and write something down.")
+                score += 3
+            else:
+                print("\nYou deliver a smooth answer you have practised in the mirror. It sounds good, though a little too perfect.")
+                score += 1
+            break
+        elif choice == "3":
+            if random.random() < 0.4:
+                print("\nThey burst out laughing, and the room relaxes. 'Honest, at least,' they say.")
+                score += 1
+            else:
+                print("\nThe joke lands in total silence. Somewhere down the corridor, a bell rings.")
+                score -= 1
+            break
+        else:
+            print("Invalid choice, try again")
+
+    #random
+    if random.random() < 0.3:
+        print("\nHalfway through your answer, their phone buzzes loudly on the desk. They glance at it, then at you.")
+        while True:
+            print("\n1. wait politely while they check it")
+            print("2. Joke that it's probably a better offer than yours")
+            choice = input("> ")
+            if choice == "1":
+                print("\nThey silence it with a small nod of thanks. 'Sorry about that.' ")
+                score += 1
+                break
+            elif choice == "2":
+                if random.random() < 0.5:
+                    print("\nThey grin. 'Cheeky. I like that.'")
+                    score += 1
+                else:
+                    print("\nThey stare at you for a long second. 'That's one way to put it.'")
+                    score -= 1
+                break
+            else:
+                print("Invalid choice, try again")
+
+    #q2
+    print("\n'Next question,' they say. 'Tell me about a weakness.'")
+    while True:
+        print("\n1. Admit something real, and say how much you are working on it")
+        print("2. Say you work too hard and care too much")
+        print("3. Saw you don't really have any weaknesses")
+        choice = input("> ")
+        if choice == "1":
+            print("\nYou admit you leave things to the last minute, and explain how you've been trying to plan your weeks better. They give a slight smile")
+            score += 2
+            break
+        elif choice == "2":
+            print("\nThey've clearly heard this one before. Their expression doesn't just change.")
+            score += 0
+            break
+        elif choice == "3":
+            print("\nThey raise an eyebrow. 'Everyone has weaknesses,' they say, and write something down.")
+            score -= 1
+            break
         ...
