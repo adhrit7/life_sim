@@ -2082,3 +2082,123 @@ def gta123():
                 return
         else:
             print("Invalid choice, try again")
+
+
+def crush_2():
+    print("\n--LIBRARY--")
+    print("It is a quiet Thursday after school, and the library is almost full. The only free table")
+    print(" is the one next to " + crush["name"] + "who looks up from their laptop and waves you over")
+
+    score = crush["affection"]
+    if player.get("prom_with", "") == "crush":
+        score += 10
+
+    # part 1
+    while True:
+        print("\nAn hour goes by. what are you doing?")
+        print("1. Offer to help " + crush["name"] + " with the problem they are stuck on")
+        print("2. Pretend to study while sneaking glances across the table")
+        print("3. Put your headphones in and get on with your own work")
+        choice = input("> ")
+        if choice == "1":
+            if player["grades"] >= 50:
+                print("\nYou walk them through it step by step. When the answer finally clicks, they grin at you.")
+                crush["affection"] += 5
+                print("Affection + 5")
+                score += 5
+            else:
+                print("\nYou try to help, get it wrong twice, and end up arguing cheerfully over the answer. Somebody shushes you, and you both giggle.")
+                crush["affection"] += 3
+                print("Affection + 3")
+                score += 3
+            break
+        elif choice == "2":
+            if random.random() < 0.7:
+                print("\nYou look up at exactly the wrong moment, and your eyes meet. You both look away at the same time.")
+                print("Neither of you says a word, but the both of you are blushing.")
+                crush["affection"] += 3
+                print("Affection + 3")
+                score += 3
+            else:
+                print("\nYou spend the whole hour looking busy and have no idea what you have read. Luckily they never notice")
+            break
+        elif choice == "3":
+            print("\nYou get a lot done, but " + crush["name"] + " gives up on  starting a conversation after a couple of tries and goes back to their notes.")
+            crush["affection"] -= 2
+            print("Affection - 2")
+            score -= 3
+            break
+        else:
+            print("Invalid choice, try again")
+
+    #part 2
+    print("\nAs you pack up your bags, " + crush["name"] + " takes a breath like they  are about to say something.")
+    if score >= 40:
+        print("'So... there's a night market on Saturday,' they say, a little too casually.")
+        print("'I've got two twickets for the lantern stalls, and my cousin bailed. I would hate for the spare to go to waste...")
+    else:
+        print("'Hey, there's a night market on Saturday,' they say.")
+        print("'I've got a spare ticket because my cousin bailed on me. I don't know if you would be interested...'")
+    print("They suddenly find their shoelaces very interesting...")
+
+    while True:
+        print("\nWhat do you say?")
+        print("1. 'Wait, are you asking me out?'")
+        print("2. 'I would love to go with you.'")
+        print("3. 'I'm sorry, but I've got plans. I hope you find someone to take.'")
+        choice = input("> ")
+
+        if choice == "1":
+            if score >= 45:
+                print("\nTheir cheeks turn red. 'Maybe I am,' they say, and finally look up to you.")
+                crush["opening"] = True
+                crush["affection"] += 10
+                print("Affection + 10")
+                player["happiness"] += 10
+                print("Happiness + 10")
+            elif score >= 25:
+                print("\nThey laugh nervously. 'I... honestly don't know yet. Ask me again on Saturday?'")
+                crush["opening"] = True
+                crush["affection"] += 3
+                print("Affection + 3")
+            else:
+                print("\n'Oh! No... it was just a spare ticket,' they say quickly. The silence afterwards is long and painful.")
+                crush["opening"] = False
+                crush["affection"] -= 4
+                print("Affection - 4")
+                player["happiness"] -= 6
+                print("Happiness - 6")
+            break
+        elif choice == "2":
+            if score >= 30:
+                print("\n'Then it's a date,' they say, so quietly that you almost missed it. You both pretend not to be blushing.")
+                crush["opening"] = True
+                crush["affection"] += 8
+                print("Affection + 8")
+                player["happiness"] += 8
+                print("Happiness + 8")
+            else:
+                print("\n'Oh! Great, as friends,' they say brightly, a little too quickly. You nod and smile, wondering what you just missed.")
+                crush["opening"] = False
+                crush["affection"] += 2
+                print("affection + 2")
+                player["happiness"] -= 2
+                print("Happiness - 2")
+            break
+        elif choice == "3":
+            print("\nThey nod slowly, and something in their face dims. 'yeah. I'll figure something out.'")
+            crush["opening"] = False
+            crush["affection"] -= 3
+            print("Affection - 3")
+            player["happiness"] -= 4
+            print("Happiness - 4")
+            break
+        else:
+            print("Invalid choice, try again")
+
+    if crush.get("opening", False):
+        print("\nYou walk home with your hands in your pockets and a grin you can't get rid of. Saturday suddenly feels very far away.")
+    else:
+        print("\nYou walk home replaying the conversation in your head, wondering what would have happened if you had said something different.")
+
+

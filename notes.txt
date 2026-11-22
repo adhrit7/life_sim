@@ -9,5 +9,5 @@ Ideas-
 
 
 What I did for devlogging-
-finished mock interview
-gta
+added a save systm finally!!
+worked on story in library

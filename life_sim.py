@@ -1,4 +1,5 @@
 from data import player, crush, popular_friends, sports
+from saves import save_game, load_game, has_save, delete_save
 import random
 import school_1
 import school_2
@@ -15,7 +16,6 @@ to choose you will simply enter a "1" or a "2" and then press "ENTER".''')
     print("Hey", player["name"] + ", you are a 16 year old who is just starting year 11 at a new high school you transferred to.")
 
 
-intro()
 
 # every scene in the order it should happen
 scenes = [
@@ -51,10 +51,39 @@ scenes = [
     school_2.gta123,
 ]
 
-for scene in scenes:
-    scene()
+
+#continue a saved game or begin a new one
+start = 0
+if has_save():
+    while True:
+        print("\n1. Continue your saved game")
+        print("2. Start a new game")
+        choice = input("> ")
+        if choice == "1":
+            loaded = load_game()
+            if loaded is None:
+                print("Your save file couldn't be read, so you are starting a new game.")
+                intro()
+            else:
+                start = loaded
+                print("\nWelcome back, " + player["name"] + "!")
+            break
+        elif choice == "2":
+            delete_save()
+            intro()
+            break
+        else:
+            print("Invalid choice, try again")
+else:
+    intro()
+
+
+for i in range(start, len(scenes)):
+    scenes[i]()
     print("\n")
     show_stats()
     if check_stats():
+        delete_save()
         break
+    save_game(i + 1)
 print("\n\nThe end for now. Thank you for playing!")
