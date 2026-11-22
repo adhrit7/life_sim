@@ -2083,7 +2083,7 @@ def gta123():
         else:
             print("Invalid choice, try again")
 
-
+#opportubity to go on a date
 def crush_2():
     print("\n--LIBRARY--")
     print("It is a quiet Thursday after school, and the library is almost full. The only free table")
@@ -2200,5 +2200,67 @@ def crush_2():
         print("\nYou walk home with your hands in your pockets and a grin you can't get rid of. Saturday suddenly feels very far away.")
     else:
         print("\nYou walk home replaying the conversation in your head, wondering what would have happened if you had said something different.")
+
+#helping a friend out
+def friend_trouble():
+    friend = "Kabir"
+    print("\n\nIt's a new day, and it's the end of lunch when " + friend + " from the friend group pulls you aside behind the canteen. He looks like he hasn't slept.")
+    print("'I need help,' he says. 'I dropped my mum's phone and the screen is smashed.")
+    print("I can get it fixed for 30 coins before she's home, but I'm short. I'll pay you back, I swear bro.'")
+
+    while True:
+        print("\nWhat do you do?")
+        print("1. Lend him the 30 coins")
+        print("2. Offer to go with him and help explain it to his mom")
+        print("3. Tell him you can't help")
+        print("4. Suggest he earns the money himself")
+        choice = input("> ")
+
+        if choice == "1":
+            if can_afford(30):
+                player["Money"] -= 30
+                print("Money - 30")
+                print("\n" + friend + " grips your hand. 'You are a lifesaver. I won't forget this.'")
+                popular_friends["respect"] += 6
+                print("Respect + 6")
+                player["happineess"] += 3
+                player["happiness"] += 3
+                if random.random() < 0.7:
+                    print("\nA week later, he hands you over 30 coins, plus a couple extra for your trouble.")
+                    player["money"] += 35
+                    print("Money + 35")
+                else:
+                    print("\nA week passes, then another. He never mentions the money again, and you decide not to either.")
+                return
+        elif choice == "2":
+            print("\nYou walk home with him, and stand awkwardly in the doorway while he explains. His mum is quiet for a very long moment.")
+            if random.random() < 0.6:
+                print("Then she sighs, takes the phone, and says she will sort it out. 'Thank yoou for coming with him,' she tells you")
+                popular_friends["respect"] += 5
+                print("Respect + 5")
+                player["happiness"] += 5
+                print("Happiness + 5")
+            else:
+                print("She is not happy, and you both get a long lecture about responsibility. It's uncomfortable, but he gives you a grateful nod afterwards.")
+                popular_friends["respect"] += 2
+                print("Respect + 2")
+                player["happiness"] -= 3
+                print("Happiness - 3")
+            return
+        elif choice == "3":
+            print("\n'Right,' he says forcing a shrug. 'It's fine. Forget it.' But the next few lunches feel a little distant")
+            popular_friends["respect"] -= 4
+            print("Respect - 4")
+            player["happiness"] -= 2
+            print("Happiness - 2")
+            return
+        elif choice == "4":
+            print("\nHe rolls his eyes, but he actuallyy thinks about it and ends up taking one.")
+            popular_friends["respect"] += 2
+            print("Respect + 2")
+            player["happiness"] += 2
+            return
+        else:
+            print("Invalid choice, try again")
 
 

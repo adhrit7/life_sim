@@ -3,7 +3,8 @@ player = {"money": 50, "health": 100, "happiness": 50, "grades": 50, "age": 16, 
            "slogan" : "" , "council" : False,
            "interview" : ""}
 popular_friends = {"met": False, "respect": 0}
-crush = {"met": False, "affection": 0, "name": ""}
+crush = {"met": False, "affection": 0, "name": "",
+         "opening": False}
 sports = {"name": "", "skills": 50, "position": "", "sessions" : 0}
 
 #---PLAYER LIST---#
@@ -21,7 +22,7 @@ sports = {"name": "", "skills": 50, "position": "", "sessions" : 0}
 #RESET respect : 0
 
 #---CRUSH LIST---#
-#RESET met : False
+#RESET met, opening : False
 #RESET affection : 0
 #RESET name : ""
 

@@ -9,5 +9,5 @@ Ideas-
 
 
 What I did for devlogging-
-added a save systm finally!!
-worked on story in library
+forgot to add stuff in dictionary last time
+worked on story (friend)

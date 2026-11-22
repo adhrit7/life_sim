@@ -49,6 +49,9 @@ scenes = [
     school_2.match_1,
     school_2.mock_interview,
     school_2.gta123,
+    school_2.crush_2,
+    school_2.training_1,
+    school_2.friend_trouble,
 ]
 
 
