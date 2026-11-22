@@ -2264,3 +2264,289 @@ def friend_trouble():
             print("Invalid choice, try again")
 
 
+# school camp
+def school_camp():
+    print("\n--SCHOOL CAMP--")
+    print("The bus rattles up a winding road for two hours before it finally stops in a bus stop in the hills.")
+    print("The  air smells of wet grass and very Earthy, and there is not a single bar of dat aon your phone")
+
+    crush_ok = crush["affection"] >= 30
+    pair = ""
+
+    #part 1
+    while True:
+        print("\nThe teachers tell everyone to pair up and put a tent. Who do you pick?")
+        print("1. The popular group")
+        print("3. A quiet classmate nobody has picked")
+        if crush_ok:
+            print("3. " + crush["name"])
+        choice = input("> ")
+        if choice == "1":
+            print("\nThe tent goes up crooked, but nobody cares, and you spend an hour being laughed at and laughing back.")
+            popular_friends["respect"] += 4
+            print("respect + 4")
+            player["happiness"] += 4
+            print("Happiness + 4")
+            pair = "friends"
+            break
+        elif choice == "3" and crush_ok:
+            print("\n" + crush["name"] + " looks pleasantly surprised and holds the poles while you hammer the pegs in. Your hands brush, and neither of you says a word about it.")
+            crush["affection"] += 5
+            print("Affection + 5")
+            player["happiness"] += 4
+            print("Happiness + 4")
+            pair = "crush"
+            break
+        elif choice == "3":
+            print("\nThe quiet classmate turns out to be hilarious once they relax, and by the time the tent is up you've gotten to know each other well.")
+            popular_friends["respect"] += 2
+            print("respect + 2")
+            player["happiness"] += 5
+            print("Happiness + 5")
+            pair = "quiet"
+            break
+        else:
+            print("Invalid choice, try again")
+
+    #part 2
+    print("\nIn the morning, the instructor splits you into groups for a hike. There are three trails to choose from.")
+    while True:
+        print("\nWhich trail do you take?")
+        print("1. The easy loop around the lake")
+        print("2. A steep trail")
+        print("3. A shortcut through the forest that isn't on the map")
+        choice = input("> ")
+
+        if choice == "1":
+            print("\nThe lake is perfectly still, and the walk is slow and peaceful. You skip stones and spot a heron")
+            player["health"] += 3
+            print("Health + 3")
+            player["happiness"] += 5
+            print("Happiness + 5")
+            break
+        elif choice == "2":
+            if random.random() < 0.7:
+                print("\nYour legs burn the entire way, but when you reach the top, the view is spectacular.")
+                player["health"] -= 6
+                print("Health - 6")
+                player["happiness"] += 10
+                print("Happiness + 10")
+            else:
+                print("\nHalfway up, your foot slips on loose gravel, and you slide a few metres on your knees. Nothing serious, but you limp the rest of the way.")
+                player["health"] -= 10
+                print("Health - 10")
+                player["happiness"] -= 2
+                print("Happiness - 2")
+            break
+        elif choice == "3":
+            if random.random() < 0.5:
+                print("\nThe path is barely there, but it leads up to a hidden waterfall. Your whole group just stands there, admiring the view.")
+                player["happiness"] += 12
+                print("Happiness + 12")
+                popular_friends["respect"] += 3
+                print("Respect + 3")
+            else:
+                print("\nThe path vanishes, and for forty minutes you are completely lost. When the instructor does find you, she isn't amused.")
+                player["health"] -= 4
+                print("Health - 4")
+                player["happiness"] -= 4
+                print("Happiness - 4")
+            break
+        else:
+            print("Invalid choice, try again")
+
+    # part 3
+    if random.random() < 0.35:
+        print("\nThat night, the clouds roll in, and rain hammers the tents. Then you feel a cold drip land on your forehead. Your tent is leaking")
+        while True:
+            print("1. Move your sleeping bag to the middle and tough it out")
+            print("2. Squeeze into a neighbour's tent")
+            print("3. Make a run for the bus and sleep on the back seats")
+            choice = input("> ")
+            if choice == "1":
+                print("\nYou spend the night curled up in a damp ball. It's miserable :( ")
+                player["health"] -= 4
+                print("Health - 4")
+                break
+            elif choice == "2":
+                print("\nYou crawl through the rain into a stranger's tent. They are very confused, but they make room.")
+                popular_friends["respect"] += 2
+                print("Respect + 2")
+                player["happiness"] += 2
+                print("Happiness + 2")
+                break
+            elif choice == "3":
+                print("\nThe bus is dry and surprisingly comfortable, until the driver starts snoring starts.")
+                player["happiness"] += 1
+                print("Happiness + 1")
+                break
+            else:
+                print("Invalid choice, try again")
+    else:
+        print("\nThat night, the sky is clear, and there are more stars than you have ever seen. The teachers light a campfire, and the whole group drifts towardds it.")
+        while True:
+            print("\nWhat do you do?")
+            print("1. Stay by the fire and tell stories")
+            if pair == "crush":
+                print("2. Wander off with " + crush["name"] + " to look at the stars")
+            else:
+                print("2. Wander off on your own to look at the stars")
+            print("3. Go to bed early")
+            choice = input("> ")
+
+            if choice == "1":
+                print("\nYou tell a ghost story that goes on for far too long. Somebody screams at the wrong moment, and the whole circle erupts into laughter.")
+                popular_friends["respect"] += 3
+                print("Respect + 3")
+                player["happiness"] += 5
+                print("Happiness + 5")
+                break
+            elif choice == "2":
+                if pair == "crush":
+                    print("the two of you lie on a flat rock and pick out constellations. Neither of you says much, but you both lose track of time.")
+                    crush["affection"] += 6
+                    print("Affection + 6")
+                    player["happiness"] += 8
+                    print("Happiness + 8")
+                else:
+                    print("\nYou lie on your back and stare upwards. It's a nice kind of quiet, the kind you don't get at school.")
+                    player["happiness"] += 4
+                    print("Happiness + 4")
+                break
+            elif choice == "3":
+                print("\nYou crawl into your sleeping bag and sleep like a log. In the morning you feel completely rested.")
+                player["health"] += 4
+                print("Health + 4")
+                break
+            else:
+                print("Invalid choice, try again")
+    print("\nThe bus ride home is quiet. Half the group is asleep, and you watch the hills slide past thw window")
+
+
+# term 1 exams
+def term_1_exams():
+    GREAT_SCORE = 60   # tune after testing
+    OK_SCORE = 42
+
+    print("\n---MID-YEAR EXAMS---")
+    print("Half the year has flown by, and the exam timetable has been pinned to the noticeboard: five days of papers, starting Monday. Everyone in the corridor looks slightly sick.")
+
+    prep = 0
+    crush_ok = crush["met"] and crush["affection"] >= 25
+
+    # part 1: revision
+    while True:
+        print("\nYou have a week to prepare. How do you revise?")
+        print("1. Structured revision in the library, hour by hour")
+        print("2. A study group with friends")
+        if crush_ok:
+            print("3. Revise with " + crush["name"])
+        else:
+            print("3. Work through old past papers on your own")
+        print("4. Cram everything the night before")
+        choice = input("> ")
+
+        if choice == "1":
+            print("\nYou make a timetable and stick to it. It's dull, but by Friday you know the material cold.")
+            prep = 6
+            player["health"] -= 2
+            print("Health - 2")
+            break
+        elif choice == "2":
+            print("\nThe group spends half the time laughing, but you still go through the hard topics together, and everyone learns something.")
+            prep = 4
+            popular_friends["respect"] += 3
+            print("Respect + 3")
+            player["happiness"] += 3
+            print("Happiness + 3")
+            break
+        elif choice == "3":
+            if crush_ok:
+                print("\nYou quiz each other over snacks, and you're surprised by how much stays in your head when you're laughing. You don't want the evenings to end.")
+                prep = 5
+                crush["affection"] += 4
+                print("Affection + 4")
+                player["happiness"] += 4
+                print("Happiness + 4")
+            else:
+                print("\nYou work through paper after paper alone. It's lonely, but your timing improves steadily.")
+                prep = 5
+                player["happiness"] -= 1
+                print("Happiness - 1")
+            break
+        elif choice == "4":
+            print("\nYou put it off until the very last night, then try to fit a week into twelve hours of coffee and panic.")
+            prep = 3
+            player["health"] -= 8
+            print("Health - 8")
+            player["happiness"] -= 3
+            print("Happiness - 3")
+            break
+        else:
+            print("Invalid choice, try again")
+
+    # part 2: the first paper
+    score = 0
+    print("\nMonday morning. Silence, pencils, and a clock ticking too loudly. Halfway through the first paper, you hit a question that looks nothing like anything you've practised.")
+    while True:
+        print("\nWhat do you do?")
+        print("1. Skip it and come back at the end")
+        print("2. Stay on it until you crack it")
+        print("3. Take a calculated guess and move on")
+        choice = input("> ")
+
+        if choice == "1":
+            if prep >= 4:
+                print("\nYou move on, finish everything else, and come back with a clear head. The answer, annoyingly, was obvious.")
+                score += 6
+            else:
+                print("\nYou move on, but with only a few minutes left, you can't make sense of it. You scribble something and hope.")
+                score += 2
+            break
+        elif choice == "2":
+            if random.random() < 0.4 + prep / 20:
+                print("\nAfter ten agonising minutes, something clicks. You feel like a genius, until you realise you only have five minutes left for the rest.")
+                score += 5
+            else:
+                print("\nYou stare at it for twenty minutes and get nowhere. By the time you give up, you're rushing everything else.")
+                score -= 4
+            break
+        elif choice == "3":
+            if random.random() < 0.5:
+                print("\nThe guess lands, and you pick up most of the marks.")
+                score += 6
+            else:
+                print("\nThe guess is wrong, but at least it only cost you a few seconds.")
+                score += 1
+            break
+        else:
+            print("Invalid choice, try again")
+
+    # part 3: the second paper, and a temptation
+    print("\nThe second paper is on Wednesday.")
+    if player.get("focus", "") == "heavy":
+        print("It's right in the middle of everything you've been drilling all year, and for once the questions look friendly.")
+        score += 3
+    elif player.get("focus", "") == "creative":
+        print("It's an essay paper, and you've never felt so at home. Your pen barely stops moving.")
+        score += 3
+    else:
+        print("It's tougher than you'd hoped, but nothing you can't handle.")
+
+    print("Halfway through, you notice the student beside you has left their answer sheet in clear view of your desk.")
+    while True:
+        print("\nWhat do you do?")
+        print("1. Look away and focus on your own paper")
+        print("2. Take a quick glance")
+        choice = input("> ")
+
+        if choice == "1":
+            print("\nYou turn your chair slightly and keep your eyes on your own page. It feels good to know every mark is yours.")
+            player["happiness"] += 2
+            print("Happiness + 2")
+            score += 2
+            break
+        elif choice == "2":
+            player["cheated"] = True
+            if random.random() < 0.3:
+                print("\nA shadow falls over your desk. The invigilator picks up your paper and writes something on it without a word. You know exactly what it says.")

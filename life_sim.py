@@ -52,6 +52,7 @@ scenes = [
     school_2.crush_2,
     school_2.training_1,
     school_2.friend_trouble,
+    school_2.school_camp,
 ]
 
 
