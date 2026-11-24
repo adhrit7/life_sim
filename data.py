@@ -1,7 +1,8 @@
 player = {"money": 50, "health": 100, "happiness": 50, "grades": 50, "age": 16, "class": "11", "suspension": False, "grounded": False,
-           "cheated" : False, "prom_with" : "", "plan": "", "focus" : "", "interest" : "",
+           "cheated" : False, "prom_with" : "", "plan": "", "focus" : "", "interest" : "", "term1" : "",
            "slogan" : "" , "council" : False,
-           "interview" : ""}
+           "interview" : "",
+           "newkid" : "", "teacher_favour" : ""}
 popular_friends = {"met": False, "respect": 0}
 crush = {"met": False, "affection": 0, "name": "",
          "opening": False}

@@ -53,6 +53,16 @@ scenes = [
     school_2.training_1,
     school_2.friend_trouble,
     school_2.school_camp,
+    school_2.term_1_exams,
+    school_2.holiday_job,
+    school_2.transfer_student,
+    school_2.detention,
+    school_2.night_market,
+    school_2.first_argument,
+    school_2.friend_split,
+    school_2.rumour,
+    school_2.city_trip,
+    school_2.yearbook_committee,
 ]
 
 
